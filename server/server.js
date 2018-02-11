@@ -1,6 +1,10 @@
-const express = require('express');
-const app = express();
+const express = require("express")
+const mongoose = require("mongoose")
+const app = express()
+const server = require('http').createServer(app);
 const bodyParser = require('body-parser');
+const http = require("http").Server(app);
+const io = require("socket.io").listen(server);
 
 const passport = require('./strategies/user.strategy');
 const sessionConfig = require('./modules/session-middleware');
@@ -30,7 +34,11 @@ app.use(express.static('server/public'));
 
 const PORT = process.env.PORT || 5000;
 
+io.on("connection", (socket) => {
+    console.log("Socket is connected...")
+})
+
 /** Listen * */
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);
 });
