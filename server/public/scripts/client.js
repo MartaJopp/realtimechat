@@ -24,9 +24,9 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
-    .when('/info', {
-      templateUrl: '/views/templates/info.html',
-      controller: 'InfoController as vm',
+    .when('/messageboard', {
+      templateUrl: '/views/templates/messageboard.html',
+      controller: 'MessageBoardController as mb',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();
