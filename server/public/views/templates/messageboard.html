@@ -10,9 +10,11 @@
       <div layout="row" layout-align="center center" flex>
       <md-input-container class="md-block">
         <label>Message</label>
-        <textarea placeholder = "Enter message here." ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-      </md-input-container>      
+        <textarea ng-model = "mb.message" placeholder = "Enter message here." md-maxlength="150" rows="5" md-select-on-focus></textarea>
+      </md-input-container>   
     </div>
     </md-toolbar>
   </footer>
+  <md-button ng-click="mb.newMessage(mb.message)" class="md-primary">Send</md-button>
+
 </div>
