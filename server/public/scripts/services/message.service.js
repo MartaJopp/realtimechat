@@ -14,11 +14,11 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
     socket.on('message', function (data) {
 //call a function to get messages here?
     })
-
+self.id = 3;
     //post new message to board
     self.newMessage = function (message){
 self.sendMessage.message = message;
-        return $http.post('/messages/', self.sendMessage).then(function (response) {
+        return $http.put('/messages/' + self.id, self.sendMessage).then(function (response) {
             console.log('response', response);
             return response
         }).catch(function (response) {

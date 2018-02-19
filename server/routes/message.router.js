@@ -3,44 +3,44 @@ module.exports = function (io) {
     var express = require('express');
     var router = express.Router();
 
-    var mongoose = require('mongoose');
+    let Persons = require('../models/Person.js');
 
-    var Schema = mongoose.Schema;
-
-    var MessageSchema = new Schema({
-        message: String,
-    });
-
-    var Messages = mongoose.model('Messages', MessageSchema, 'messages');
 
     //post the calculation to the database
-    router.post('/', function (req, res) {
-        if (req.isAuthenticated()) {
-
+    router.put('/:id', function (req, res) {
         // console.log('what is io', io)
-        console.log('user', req.user.username)
-        console.log('what was sent', req.body);
-        // var message = new Messages(req.body);
+        console.log('user', req.params.id);
+        // var messToAdd = new Messas(req.body);
         // console.log('test', testToAdd ) //renaming to work with mongoose
-        // message.save(function (err, data) {
+        // Messas.save(function (err, data) {
         //     if (err) {
         //         console.log(err);
         //         res.sendStatus(500);
         //     } else {
         //         res.sendStatus(200)
         //         //Emit the event
-                io.emit("message", req.body)
+        //         io.emit("message", req.body)
         //     }
         // }); // END SAVE
-    }//end if autthenticated
-    else {
-        console.log('User is not authenticated')
-    }//not authenticated
     }); // END POST Route
 
-    router.get('/', function (req, res) {
-        res.sendFile(__dirname + '/public/index.html');
-    });
+    // //get the last 10 records
+    // router.get('/', function (req, res) {
+    //     Calcs.find({}).sort({ _id: -1 }).limit(10).exec(function (err, calcs) { //finding chats
+    //         if (err) {
+    //             console.log("ERROR!", err);
+    //             res.sendStatus(500);
+    //         } else {
+    //             console.log('tests', calcs)
+    //             res.send(calcs);
+
+    //         }
+    //     }); // END FIND
+    // }); // END GET Route
+
+    // router.get('/', function (req, res) {
+    //     res.sendFile(__dirname + '/public/index.html');
+    // });
 
     return router;
 }
