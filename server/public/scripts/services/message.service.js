@@ -3,7 +3,7 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
     var self = this;
 
     self.sendMessage = {
-        message: ''
+        message: '',
     }
 
     self.messages = {
@@ -14,16 +14,16 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
     socket.on('message', function (data) {
 //call a function to get messages here?
     })
-self.id = 3;
+// self.id = 3;
     //post new message to board
-    self.newMessage = function (message){
-self.sendMessage.message = message;
-        return $http.put('/messages/' + self.id, self.sendMessage).then(function (response) {
-            console.log('response', response);
-            return response
-        }).catch(function (response) {
-            console.log('Error');
-        });
+    self.newMessage = function (message) {
+        self.sendMessage.message = message;
+        console.log(self.sendMessage)
+        $http.post('/messages/', self.sendMessage).then(function (response) {
+            console.log('Success');
+        }).catch(function (err) {
+            console.log('Error Posting Total');
+        })
     }; //end send Message function
 
     self.getMessages = function () {

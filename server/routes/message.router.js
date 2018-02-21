@@ -7,21 +7,21 @@ module.exports = function (io) {
 
 
     //post the calculation to the database
-    router.put('/:id', function (req, res) {
-        // console.log('what is io', io)
+    router.post('/', function (req, res) {
+        console.log('here')
         console.log('user', req.params.id);
-        // var messToAdd = new Messas(req.body);
-        // console.log('test', testToAdd ) //renaming to work with mongoose
-        // Messas.save(function (err, data) {
-        //     if (err) {
-        //         console.log(err);
-        //         res.sendStatus(500);
-        //     } else {
-        //         res.sendStatus(200)
-        //         //Emit the event
-        //         io.emit("message", req.body)
-        //     }
-        // }); // END SAVE
+        var messToAdd = new Messas(req.body);
+        console.log('test', testToAdd ) //renaming to work with mongoose
+        Messas.save(function (err, data) {
+            if (err) {
+                console.log(err);
+                res.sendStatus(500);
+            } else {
+                res.sendStatus(200)
+                // Emit the event
+                io.emit("message", req.body)
+            }
+        }); // END SAVE
     }); // END POST Route
 
     // //get the last 10 records

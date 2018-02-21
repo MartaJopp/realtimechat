@@ -6,9 +6,9 @@ myApp.controller('MessageBoardController', ['UserService', 'MessageService', fun
   vm.messages = MessageService.messages;
 //post new message from input
   vm.newMessage = function (message) {
-    MessageService.newMessage(message).then(function (response){
+    console.log('clicked')
+    MessageService.newMessage(message)
 
-    })
    
   }//end newMessage
 
