@@ -19,7 +19,7 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
     self.newMessage = function (message) {
         self.sendMessage.message = message;
         console.log(self.sendMessage)
-        $http.post('/messages/', self.sendMessage).then(function (response) {
+        $http.post('/messages', self.sendMessage).then(function (response) {
             console.log('Success');
         }).catch(function (err) {
             console.log('Error Posting Total');

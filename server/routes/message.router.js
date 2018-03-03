@@ -6,22 +6,23 @@ module.exports = function (io) {
     let Persons = require('../models/Person.js');
 
 
-    //post the calculation to the database
+    //post the message to the database
     router.post('/', function (req, res) {
         console.log('here')
         console.log('user', req.params.id);
-        var messToAdd = new Messas(req.body);
-        console.log('test', testToAdd ) //renaming to work with mongoose
-        Messas.save(function (err, data) {
-            if (err) {
-                console.log(err);
-                res.sendStatus(500);
-            } else {
-                res.sendStatus(200)
-                // Emit the event
-                io.emit("message", req.body)
-            }
-        }); // END SAVE
+        console.log(req.body)
+        // var messToAdd = new Messas(req.body);
+        // console.log('test', testToAdd ) //renaming to work with mongoose
+        // Messas.save(function (err, data) {
+        //     if (err) {
+        //         console.log(err);
+        //         res.sendStatus(500);
+        //     } else {
+        //         res.sendStatus(200)
+        //         // Emit the event
+        //         io.emit("message", req.body)
+        //     }
+        // }); // END SAVE
     }); // END POST Route
 
     // //get the last 10 records
