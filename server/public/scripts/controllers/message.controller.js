@@ -1,5 +1,5 @@
 myApp.controller('MessageBoardController', ['UserService', 'MessageService', function(UserService, MessageService, socket) {
-  console.log('InfoController created');
+  console.log('MessageBoardController created');
   var vm = this;
   vm.userService = UserService;
   vm.messageService = MessageService;

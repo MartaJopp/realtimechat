@@ -33,6 +33,15 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
+    .when('/sample', {
+      templateUrl: '/views/templates/sample.html',
+      controller: 'SampleController as sc',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    })
     .otherwise({
       template: '<h1>404</h1>'
     });
