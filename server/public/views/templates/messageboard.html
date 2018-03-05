@@ -3,12 +3,19 @@
   <p>
     At the message board.
   </p>
-      <div layout="row" layout-align="center center" flex>
-      <md-input-container class="md-block">
-        <label>Message</label>
-        <textarea ng-model = "mb.message" placeholder = "Enter message here." md-maxlength="150" rows="5" md-select-on-focus></textarea>
-      </md-input-container>   
-    </div>
+  <div layout="column" layout-align="center center" flex>
+    <ul ng-repeat="message in mb.messages.data">
+      <li> {{message.message}}</li>
+      <li> {{message.posted_by}} </li>
+      <li> {{message.created_at}}</li>
+    </ul>
+  </div>
+  <div layout="row" layout-align="center center" flex>
+    <md-input-container class="md-block">
+      <label>Message</label>
+      <textarea ng-model="mb.message" placeholder="Enter message here." md-maxlength="150" rows="5" md-select-on-focus></textarea>
+    </md-input-container>
+  </div>
   <md-button ng-click="mb.newMessage(mb.message)" class="md-primary">Send</md-button>
 
 </div>

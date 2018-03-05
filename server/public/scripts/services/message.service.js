@@ -12,6 +12,8 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
 
     var socket = io()
     socket.on('message', function (data) {
+        console.log('message received', data)
+        self.getMessages()
 //call a function to get messages here?
     })
 // self.id = 3;
@@ -31,7 +33,9 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
 
 
     self.getMessages = function () {
-        $http.get('/messages/').then(function (response) {
+        console.log('This got called')
+        $http.get('/message/').then(function (response) {
+            console.log(response.data)
             self.messages.data = response.data;
         }).catch(function (err) {
             console.log('Error getting messages');

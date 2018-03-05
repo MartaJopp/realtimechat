@@ -15,6 +15,8 @@ myApp.controller('MessageBoardController', ['UserService', 'MessageService', fun
   //get existing messages
   vm.getMessages = function (){
     MessageService.getMessages()
+    console.log('from controller', vm.messages)
   } //end get messages
 
+  vm.getMessages()
 }]);
