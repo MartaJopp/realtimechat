@@ -1,29 +1,31 @@
-module.exports = function (io) {
+    module.exports = function (io) {
 
-    var express = require('express');
-    var router = express.Router();
+        var express = require('express');
+        var router = express.Router();
 
-    let Persons = require('../models/Person.js');
+        var mongoose = require('mongoose');
 
+        var Schema = mongoose.Schema;
 
-    //post the message to the database
-    router.post('/', function (req, res) {
-        console.log('here')
-        console.log('user', req.params.id);
-        console.log(req.body)
-        // var messToAdd = new Messas(req.body);
-        // console.log('test', testToAdd ) //renaming to work with mongoose
-        // Messas.save(function (err, data) {
-        //     if (err) {
-        //         console.log(err);
-        //         res.sendStatus(500);
-        //     } else {
-        //         res.sendStatus(200)
-        //         // Emit the event
-        //         io.emit("message", req.body)
-        //     }
-        // }); // END SAVE
-    }); // END POST Route
+        // let Persons = require('../models/Person.js');
+
+        //post the calculation to the database
+        router.post('/', function (req, res) {
+            // console.log('what is io', io)
+            console.log('what was sent', req.body);
+            // var calcToAdd = new Calcs(req.body);
+            // // console.log('test', testToAdd ) //renaming to work with mongoose
+            // calcToAdd.save(function (err, data) {
+            //     if (err) {
+            //         console.log(err);
+            //         res.sendStatus(500);
+            //     } else {
+            //         res.sendStatus(200)
+            //         //Emit the event
+            //         io.emit("pro", req.body)
+            //     }
+            // }); // END SAVE
+        }); // END POST Route
 
     // //get the last 10 records
     // router.get('/', function (req, res) {
@@ -39,9 +41,9 @@ module.exports = function (io) {
     //     }); // END FIND
     // }); // END GET Route
 
-    // router.get('/', function (req, res) {
-    //     res.sendFile(__dirname + '/public/index.html');
-    // });
+        router.get('/', function (req, res) {
+            res.sendFile(__dirname + '/public/index.html');
+        });
 
-    return router;
-}
+        return router;
+    }
