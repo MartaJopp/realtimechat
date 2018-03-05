@@ -31,7 +31,7 @@
         <div ng-repeat="message in mb.messages.data" class="w3-container w3-card w3-white w3-round w3-margin">
           <br>
           <img src="/w3images/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-          <span class="w3-right w3-opacity">{{message.created_at}}</span>
+          <span class="w3-right w3-opacity">{{message.created_at | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}}</span>
           <h4>{{message.posted_by}}</h4>
           <br>
           <!-- <hr class="w3-clear"> -->
@@ -40,7 +40,7 @@
 
         <!-- <footer class="w3-container w3-theme-d3 w3-padding-16"> -->
         <div class="messageBoardFooter">
-          <footer class="messageFooter">
+          <footer class="messageFooter w3-theme-d2">
             <div class="w3-row">
               <div class="w3-col m10">
                 <md-input-container class="md-block messageBlock">
@@ -50,7 +50,7 @@
               </div>
               <div class="w3-col m1 buttonFooter">
 
-                <md-button ng-click="mb.newMessage(mb.message)" class="md-raised w3-theme-d2">Send</md-button>
+                <md-button ng-click="mb.newMessage(mb.message)" class="md-raised">Send</md-button>
               </div>
             </div>
           </footer>
