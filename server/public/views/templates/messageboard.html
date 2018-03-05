@@ -1,21 +1,65 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-  <p>
-    At the message board.
-  </p>
-  <div layout="column" layout-align="center center" flex>
-    <ul ng-repeat="message in mb.messages.data">
-      <li> {{message.message}}</li>
-      <li> {{message.posted_by}} </li>
-      <li> {{message.created_at}}</li>
-    </ul>
-  </div>
-  <div layout="row" layout-align="center center" flex>
-    <md-input-container class="md-block">
-      <label>Message</label>
-      <textarea ng-model="mb.message" placeholder="Enter message here." md-maxlength="150" rows="5" md-select-on-focus></textarea>
-    </md-input-container>
-  </div>
-  <md-button ng-click="mb.newMessage(mb.message)" class="md-primary">Send</md-button>
 
-</div>
+  <!-- Page Container -->
+  <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+    <!-- The Grid -->
+    <div class="w3-row">
+      <!-- Left Column -->
+      <div class="w3-col m3">
+        <!-- Profile -->
+        <div class="w3-card w3-round w3-white">
+          <div class="w3-container">
+            <h4 class="w3-center">My Profile</h4>
+            <p class="w3-center">
+              <img src="/w3images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
+            </p>
+            <hr>
+            <p>
+              <i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Designer, UI</p>
+            <p>
+              <i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>
+            <p>
+              <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>
+          </div>
+        </div>
+      </div>
+      <!--end left column -->
+      <!-- Middle Column -->
+      <div class="w3-col m7">
+
+        <div ng-repeat="message in mb.messages.data" class="w3-container w3-card w3-white w3-round w3-margin">
+          <br>
+          <img src="/w3images/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+          <span class="w3-right w3-opacity">{{message.created_at}}</span>
+          <h4>{{message.posted_by}}</h4>
+          <br>
+          <!-- <hr class="w3-clear"> -->
+          <p>{{message.message}}</p>
+        </div>
+
+        <!-- <footer class="w3-container w3-theme-d3 w3-padding-16"> -->
+        <div class="messageBoardFooter">
+          <footer class="messageFooter">
+            <div class="w3-row">
+              <div class="w3-col m10">
+                <md-input-container class="md-block messageBlock">
+                  <!-- <label>Message</label> -->
+                  <textarea ng-model="mb.message" placeholder="Enter message here." md-maxlength="300" rows="2" md-select-on-focus></textarea>
+                </md-input-container>
+              </div>
+              <div class="w3-col m1 buttonFooter">
+
+                <md-button ng-click="mb.newMessage(mb.message)" class="md-raised w3-theme-d2">Send</md-button>
+              </div>
+            </div>
+          </footer>
+
+          <footer class="w3-container w3-theme-d5 bottomFooter">
+            <p>Powered by
+              <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+            </p>
+          </footer>
+        </div>
+
+      </div>
