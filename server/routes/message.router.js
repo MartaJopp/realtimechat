@@ -5,26 +5,32 @@
 
         var mongoose = require('mongoose');
 
-        var Schema = mongoose.Schema;
+        // var Schema = mongoose.Schema;
 
-        // let Persons = require('../models/Person.js');
-
+        let Persons = require('../models/Person.js');
+        let Message = require('../models/Message.js')
         //post the calculation to the database
         router.post('/', function (req, res) {
-            // console.log('what is io', io)
-            console.log('what was sent', req.body);
-            // var calcToAdd = new Calcs(req.body);
-            // // console.log('test', testToAdd ) //renaming to work with mongoose
-            // calcToAdd.save(function (err, data) {
-            //     if (err) {
-            //         console.log(err);
-            //         res.sendStatus(500);
-            //     } else {
-            //         res.sendStatus(200)
-            //         //Emit the event
-            //         io.emit("pro", req.body)
-            //     }
-            // }); // END SAVE
+            if (req.isAuthenticated) {
+            console.log(req.user.id)            
+            var messageToSave = new Message(req.body);
+            messageToSave.posted_by = req.user.username;
+            console.log(messageToSave.posted_by);
+                console.log('the whole thing', messageToSave)
+                messageToSave.save(function (err, data) {
+                    if (err) {
+                        console.log(err);
+                        res.sendStatus(500);
+                    } else {
+                        res.sendStatus(200)
+                        //Emit the event
+                        io.emit("message", messageToSave)
+                    }
+                }); // END SAVE
+        }//end if authenticated
+            else {
+                console.log('User is not authenticated.')
+            }
         }); // END POST Route
 
     // //get the last 10 records
