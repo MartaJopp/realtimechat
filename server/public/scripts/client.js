@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'angularMoment']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'angularMoment', 'angular-filepicker']);
 
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {

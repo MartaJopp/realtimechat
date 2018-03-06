@@ -110,10 +110,10 @@ main {
   margin-left: 50px;
 }
 
-.messageFooter {
+/* .messageFooter {
   border: #008496;
   border-style: solid;
-}
+} */
 
 .buttonFooter {
   margin-top: 30px;
@@ -138,4 +138,9 @@ md-input-focused label {
 
 #messageText {
   color: white
+}
+
+.preview {
+  height: 100px;
+  width: auto;
 }

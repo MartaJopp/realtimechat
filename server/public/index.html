@@ -32,7 +32,10 @@
     <script type="text/javascript" src="scripts/controllers/sample.controller.js"></script>
     <script type="text/javascript" src="scripts/services/user.service.js"></script>
     <script type="text/javascript" src="scripts/services/message.service.js"></script>
-
+    <script src="https://static.filestackapi.com/v3/filestack.js "></script>
+    <script src="//static.filestackapi.com/v3/filestack-0.9.12.js "></script>
+    <script src="vendors/filestack.js "></script>
+    <script src="vendors/angular_filepicker.js "></script>
 </head>
 
 <body ng-app="myApp">
@@ -40,7 +43,11 @@
 
     <main ng-view></main>
     <script src="socket.io/socket.io.js"></script>
-
+<script src="//static.filestackapi.com/v3/filestack-0.9.12.js "></script>
+<script>
+    const apikey = 'A1JwDWLRvRvgGNT0VV1LBz';
+    const client = filestack.init(apikey);
+</script>
 </body>
 
 </html>
