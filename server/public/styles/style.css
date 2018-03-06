@@ -135,3 +135,7 @@ md-input-container label {
 md-input-focused label {
   color: white;
 }
+
+#messageText {
+  color: white
+}
