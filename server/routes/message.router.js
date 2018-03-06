@@ -15,7 +15,7 @@ module.exports = function (io) {
             console.log(req.user.id)
             var messageToSave = new Message(req.body);
             messageToSave.posted_by = req.user.username;
-            console.log(messageToSave.posted_by);
+            messageToSave.image = req.user.profilePicture;
             console.log('the whole thing', messageToSave)
             messageToSave.save(function (err, data) {
                 if (err) {

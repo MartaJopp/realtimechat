@@ -4,8 +4,8 @@ myApp.controller('MessageBoardController', ['UserService', 'MessageService', fun
   vm.userService = UserService;
   vm.messageService = MessageService;
   vm.messages = MessageService.messages;
-  
-  
+  vm.userObject = UserService.userObject
+
   //post new message from input
   vm.newMessage = function (message) {
     console.log('clicked')
@@ -23,4 +23,7 @@ myApp.controller('MessageBoardController', ['UserService', 'MessageService', fun
   } //end get messages
 
   vm.getMessages()
+
+
+
 }]);

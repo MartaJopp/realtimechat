@@ -9,6 +9,12 @@ myApp.service('UserService', ['$http', '$location', function($http, $location, s
         if(response.data.username) {
             // user has a curret session on the server
             self.userObject.userName = response.data.username;
+            console.log('the response', response.data)
+            self.userObject.city = response.data.city;
+            self.userObject.birthday = response.data.birthday;
+            self.userObject.profilePicture = response.data.profilePicture;
+          self.userObject.occupation = response.data.occupation;
+
             console.log('UserService -- getuser -- User Data: ', self.userObject.userName);
         } else {
             console.log('UserService -- getuser -- failure');

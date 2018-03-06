@@ -33,6 +33,8 @@ passport.use('local', new LocalStrategy({
     Person.find({ username })
       .then((result) => {
         const user = result && result[0];
+        console.log('the result', result) 
+        console.log('the user strategy', user)
         if (user && encryptLib.comparePassword(password, user.password)) {
           // all good! Passwords match!
           done(null, user);

@@ -1,7 +1,7 @@
 myApp.service('MessageService', ['$http', '$location', function ($http, $location, socket) {
     console.log('UserService Loaded');
     var self = this;
-
+    
     self.sendMessage = {
         message: ''
     }
@@ -14,13 +14,11 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
     socket.on('message', function (data) {
         console.log('message received', data)
         self.getMessages()
-//call a function to get messages here?
     })
-// self.id = 3;
-    //post new message to board
 
+
+    //post new message to board
     self.newMessage = function (message) {
- 
         self.sendMessage.message = message;
         console.log(self.sendMessage);
         console.log('here')

@@ -61,7 +61,7 @@ myApp.controller('LoginController', ['$scope', '$http', '$location', 'UserServic
     }).then(function (response) {
       $scope.$apply(function () {
         vm.user.profilePicture = response.filesUploaded[0].url;
-      });     
+      });
     });
   } //end choose photo when registering
 

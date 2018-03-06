@@ -9,6 +9,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
   // check if logged in
   if (req.isAuthenticated()) {
+    console.log('the user', req.user)
     // send back user object from database
     res.send(req.user);
   } else {
@@ -23,8 +24,11 @@ router.get('/', (req, res) => {
 router.post('/register', (req, res, next) => {
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
-
-  const newPerson = new Person({ username, password });
+  const city = req.body.city
+  const birthday = req.body.birthday
+  const occupation = req.body.occupation
+  const profilePicture = req.body.profilePicture
+  const newPerson = new Person({ username, password, city, birthday, occupation, profilePicture  });
   newPerson.save()
     .then(() => { res.sendStatus(201); })
     .catch((err) => { next(err); });

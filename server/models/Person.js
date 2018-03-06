@@ -7,9 +7,9 @@ const PersonSchema = new Schema({
   username: { type: String, required: true, index: { unique: true } },
   password: { type: String, required: true },
   birthday: { type: Date },
-  location: { type: String },
-  picture: { type: String }
-  
+  city: { type: String },
+  occupation: {type: String},
+  profilePicture: { type: String }
 });
 
 
