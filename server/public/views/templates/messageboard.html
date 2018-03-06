@@ -9,7 +9,7 @@
         <!-- Profile -->
         <div class="w3-card w3-round w3-white">
           <div class="w3-container">
-            <h4 class="w3-center">My Profile</h4>
+            <h4 class="w3-center">{{mb.userObject.userName}}</h4>
             <p class="w3-center">
               <img src="{{mb.userObject.profilePicture}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
             </p>
@@ -29,7 +29,7 @@
 
         <div ng-repeat="message in mb.messages.data" class="w3-container w3-card w3-white w3-round w3-margin">
           <br>
-          <img src = "{{message.image}}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+          <img src = "{{message.image}}" alt="Profile Picture" class="w3-left w3-circle w3-margin-right" style="width:60px">
           <span class="w3-right w3-opacity">{{message.created_at | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}}</span>
           <h4>{{message.posted_by}}</h4>
           <br>

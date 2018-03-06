@@ -148,3 +148,8 @@ md-input-focused label {
 .register {
   width: 300px;
 }
+
+#messagePicture {
+  width: 60px;
+  height: auto;
+}

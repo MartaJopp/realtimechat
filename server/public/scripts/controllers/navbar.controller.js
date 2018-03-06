@@ -25,4 +25,8 @@ myApp.controller('NavBarController', ['UserService', 'MessageService', function 
             x.className = x.className.replace(" w3-show", "");
         }
     }
+
+//     vm.logout = function () {
+// UserService.logout()
+//     }
 }]); // end NavBar Controller
