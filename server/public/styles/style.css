@@ -127,6 +127,13 @@ main {
   left: 0;
 }
 
+.bottomFooter {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 md-input-container label {
   color: white;
 }
@@ -153,3 +160,4 @@ md-input-focused label {
   width: 60px;
   height: auto;
 }
+

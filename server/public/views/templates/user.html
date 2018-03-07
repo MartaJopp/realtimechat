@@ -7,41 +7,42 @@
 
 <div class="container">
 
-    <h1 id="welcome" class="lead">Welcome, {{vm.userObject.userName}}!</h1>
+    <!-- <h1 id="welcome" class="lead">Welcome, {{vm.userObject.userName}}!</h1> -->
     <!-- <button class="btn btn-default" ng-click="vm.userService.logout()">Log Out</button> -->
-        <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
-            <!-- The Grid -->
-            <div class="w3-row">
-                <!-- Left Column -->
-                <div class="w3-col m3">
-                    <!-- Profile -->
-                    <div class="w3-card w3-round w3-white">
-                        <div class="w3-container">
-                            <h4 class="w3-center">{{vm.userObject.userName}}</h4>
-                            <p class="w3-center">
-                                <img src="{{vm.userObject.profilePicture}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
-                            </p>
-                            <hr>
-                            <p>
-                                <i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>{{vm.userObject.occupation}}</p>
-                            <p>
-                                <i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>{{vm.userObject.city}}</p>
-                            <p>
-                                <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> {{vm.userObject.birthday | amDateFormat:'MM/D/YYYY'}}</p>
-                        </div>
+    <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+        <!-- The Grid -->
+        <div class="w3-row">
+            <!-- Left Column -->
+            <div class="w3-col m3">
+                <!-- Profile -->
+                <div class="w3-card w3-round w3-white">
+                    <div class="w3-container">
+                        <h4 class="w3-center">{{vm.userObject.userName}}</h4>
+                        <p class="w3-center">
+                            <img src="{{vm.userObject.profilePicture}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
+                        </p>
+                        <hr>
+                        <p>
+                            <i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>{{vm.userObject.occupation}}</p>
+                        <p>
+                            <i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>{{vm.userObject.city}}</p>
+                        <p>
+                            <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> {{vm.userObject.birthday | amDateFormat:'MM/D/YYYY'}}</p>
                     </div>
                 </div>
-                <!--end left column -->
-                <!-- Middle Column -->
-                <div class="w3-col m7">
+            </div>
+            <!--end left column -->
+            <!-- Middle Column -->
+            <div class="w3-col m7">
 
+                <!--Middle Column stuff goes here -->
 
-                    </div>
-                    <!--end Middle Column-->
-                    </div>
-                    </div>
-                <footer class="w3-container w3-theme-d5 bottomFooter">
-                    <p>Real Time Chat
-                    </p>
-                </footer>
-                            </div>
+            </div>
+            <!--end Middle Column-->
+        </div>
+    </div>
+    <footer class="w3-container w3-theme-d5 bottomFooter">
+        <p>Real Time Chat
+        </p>
+    </footer>
+</div>
