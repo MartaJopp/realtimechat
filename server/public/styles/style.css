@@ -161,3 +161,7 @@ md-input-focused label {
   height: auto;
 }
 
+#editP {
+  float: right;
+  cursor: pointer;
+}

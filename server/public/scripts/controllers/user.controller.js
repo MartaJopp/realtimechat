@@ -10,4 +10,22 @@ myApp.controller('UserController', ['UserService', function(UserService) {
     vm.editProfile = false;
     console.log(vm.editProfile)
   }
+
+  vm.cancelEdit = function () {
+    vm.editProfile = true;
+  }
+
+  vm.saveProfile = function (editedProfile) {
+    console.log('clicked!')
+    // UserService.saveProfile(editedProfile).then(function (response){
+vm.editProfile = true;
+    // })
+    swal({
+      "title": "Updated!",
+      "text": "Your profile has been updated!",
+      "icon": "success"
+    });
+  // }).catch(function () {
+  //   swal('Something went wrong.');
+  }
 }]);
