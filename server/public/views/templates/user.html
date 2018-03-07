@@ -17,17 +17,21 @@
                 <!-- Profile -->
                 <div class="w3-card w3-round w3-white">
                     <div class="w3-container">
-                        <h4 class="w3-center">{{vm.userObject.userName}}</h4>
+                        <h4 class="w3-center" ng-show="vm.editProfile">{{vm.userObject.userName}}</h4>
+                        <h4 class="w3-center" ng-hide="vm.editProfile"><input aria-label="username" placeholder="{{vm.userObject.userName}}" ng-model="vm.editedProfile.userName">
+</h4>
+
                         <p class="w3-center">
                             <img src="{{vm.userObject.profilePicture}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
                         </p>
                         <hr>
                         <p>
-                            <i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>{{vm.userObject.occupation}}</p>
+                            <i class="fa fa-industry fa-fw w3-margin-right w3-text-theme"></i>{{vm.userObject.occupation}}</p>
                         <p>
                             <i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>{{vm.userObject.city}}</p>
                         <p>
                             <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> {{vm.userObject.birthday | amDateFormat:'MM/D/YYYY'}}</p>
+                            <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme" ng-click="vm.updateProfile()"></i>Edit</p>
                     </div>
                 </div>
             </div>
