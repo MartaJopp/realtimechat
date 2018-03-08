@@ -25,15 +25,26 @@
                             <img src="{{vm.userObject.profilePicture}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
                         </p>
                         <hr>
-                        <p>
+                        <p ng-show="vm.editProfile">
                             <i class="fa fa-industry fa-fw w3-margin-right w3-text-theme"></i>{{vm.userObject.occupation}}</p>
-                        <p>
+                        <p ng-hide="vm.editProfile">
+                            <i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>
+                            <input aria-label="city" placeholder="{{vm.userObject.occupation}}" ng-model="vm.editedProfile.occupation">
+                        </p>
+                        <p ng-show="vm.editProfile">
                             <i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>{{vm.userObject.city}}</p>
-                        <p>
+                        <p ng-hide="vm.editProfile">
+                            <i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>
+                            <input aria-label="city" placeholder="{{vm.userObject.city}}" ng-model="vm.editedProfile.city">
+                        </p>
+                        <p ng-show="vm.editProfile">
                             <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> {{vm.userObject.birthday | amDateFormat:'MM/D/YYYY'}}</p>
-                 
-                        </div>
-                 
+<p ng-hide="vm.editProfile">
+    <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
+        <md-datepicker ng-model="vm.editedProfile.birthday" ng-placeholder="{{vm.userObject.birthday}}"></md-datepicker>
+</p>
+                    </div>
+
                     <md-button ng-hide="vm.editProfile" ng-click="vm.saveProfile(vm.editedProfile)" class="md-raised">Save</md-button>
                     <md-button ng-hide="vm.editProfile" ng-click="vm.cancelEdit()" class="md-raised">Cancel</md-button>
 
