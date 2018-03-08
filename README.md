@@ -1,6 +1,6 @@
 # Real Time Messaging
 
-One Paragraph of project description goes here. Link to the live version of the app if it's hosted on Heroku.
+A real time messaging application with authentication. Users have the ability to create a profile, and send and read real time messages.
 
 ## Built With
 

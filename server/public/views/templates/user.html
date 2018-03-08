@@ -31,7 +31,9 @@
                             <i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>{{vm.userObject.city}}</p>
                         <p>
                             <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> {{vm.userObject.birthday | amDateFormat:'MM/D/YYYY'}}</p>
-                    </div>
+                 
+                        </div>
+                 
                     <md-button ng-hide="vm.editProfile" ng-click="vm.saveProfile(vm.editedProfile)" class="md-raised">Save</md-button>
                     <md-button ng-hide="vm.editProfile" ng-click="vm.cancelEdit()" class="md-raised">Cancel</md-button>
 
