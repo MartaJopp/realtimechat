@@ -49,4 +49,25 @@ router.get('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
+router.put('/:id', function(req, res){
+  let user = req.params.id;
+  Person.update({ "_id": user }, {
+    $set: {
+      "username": req.body.username,
+        "occupation": req.body.occupation,
+        "city": req.body.city,
+        "birthday": req.body.birthday,
+        "profilePicture": req.body.profilePicture
+      }
+  }, function (err, personFound) {
+    if (err) {
+      console.log("Error received updating person.", err);
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(204)
+    };
+  })
+})//end update route
+
+
 module.exports = router;

@@ -3,6 +3,8 @@ myApp.service('UserService', ['$http', '$location', function($http, $location, s
   var self = this;
   self.userObject = {};
 
+  self.editedUserProfile = {};
+
   self.getuser = function(){
     console.log('UserService -- getuser');
     $http.get('/api/user').then(function(response) {
@@ -13,7 +15,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location, s
             self.userObject.city = response.data.city;
             self.userObject.birthday = response.data.birthday;
             self.userObject.profilePicture = response.data.profilePicture;
-          self.userObject.occupation = response.data.occupation;
+            self.userObject.occupation = response.data.occupation;
 
             console.log('UserService -- getuser -- User Data: ', self.userObject.userName);
         } else {
@@ -34,4 +36,15 @@ myApp.service('UserService', ['$http', '$location', function($http, $location, s
       $location.path("/home");
     });
   }
+
+  //save profile function
+  self.saveProfile = function(editedProfile) {
+    self.editedUserProfile = editedProfile;
+    console.log('updated user', self.editedUserProfile)
+    return $http.put('/api/user', self.editedUserProfile).then(function (response){
+      console.log(response)
+      //refresh the user profile based on the changes
+      self.getUser();
+    })
+  }//end save profile
 }]);
