@@ -16,7 +16,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location, s
             self.userObject.birthday = response.data.birthday;
             self.userObject.profilePicture = response.data.profilePicture;
             self.userObject.occupation = response.data.occupation;
-
+            self.userObject._id = response.data._id
             console.log('UserService -- getuser -- User Data: ', self.userObject.userName);
         } else {
             console.log('UserService -- getuser -- failure');
@@ -38,10 +38,11 @@ myApp.service('UserService', ['$http', '$location', function($http, $location, s
   }
 
   //save profile function
-  self.saveProfile = function(editedProfile) {
+  self.saveProfile = function(id, editedProfile) {
+    console.log(editedProfile, id)
     self.editedUserProfile = editedProfile;
     console.log('updated user', self.editedUserProfile)
-    return $http.put('/api/user', self.editedUserProfile).then(function (response){
+    return $http.put('/api/user/' + id, self.editedUserProfile).then(function (response){
       console.log(response)
       //refresh the user profile based on the changes
       self.getUser();

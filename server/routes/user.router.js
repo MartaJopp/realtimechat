@@ -50,14 +50,16 @@ router.get('/logout', (req, res) => {
 });
 
 router.put('/:id', function(req, res){
-  let user = req.params.id;
+  console.log('req.params', req.params.id)
+  console.log(req.body)
+  let user = req.params._id;
   Person.update({ "_id": user }, {
     $set: {
       "username": req.body.username,
         "occupation": req.body.occupation,
         "city": req.body.city,
         "birthday": req.body.birthday,
-        "profilePicture": req.body.profilePicture
+        // "profilePicture": req.body.profilePicture
       }
   }, function (err, personFound) {
     if (err) {
@@ -65,6 +67,8 @@ router.put('/:id', function(req, res){
       res.sendStatus(500);
     } else {
       res.sendStatus(204)
+      console.log(personFound)
+      console.log('success')
     };
   })
 })//end update route

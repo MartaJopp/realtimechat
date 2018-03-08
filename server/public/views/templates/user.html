@@ -39,13 +39,13 @@
                         </p>
                         <p ng-show="vm.editProfile">
                             <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> {{vm.userObject.birthday | amDateFormat:'MM/D/YYYY'}}</p>
-<p ng-hide="vm.editProfile">
-    <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
-        <md-datepicker ng-model="vm.editedProfile.birthday" ng-placeholder="{{vm.userObject.birthday}}"></md-datepicker>
-</p>
+                        <p ng-hide="vm.editProfile">
+                            <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
+                            <md-datepicker ng-model="vm.editedProfile.birthday" ng-placeholder="{{vm.userObject.birthday}}"></md-datepicker>
+                        </p>
                     </div>
 
-                    <md-button ng-hide="vm.editProfile" ng-click="vm.saveProfile(vm.editedProfile)" class="md-raised">Save</md-button>
+                    <md-button ng-hide="vm.editProfile" ng-click="vm.saveProfile(vm.userObject._id, vm.editedProfile)" class="md-raised">Save</md-button>
                     <md-button ng-hide="vm.editProfile" ng-click="vm.cancelEdit()" class="md-raised">Cancel</md-button>
 
                 </div>
