@@ -52,7 +52,7 @@ myApp.controller('LoginController', ['$scope', '$http', '$location', 'UserServic
   }
 
   vm.fsClient = filestack.init('A1JwDWLRvRvgGNT0VV1LBz');
-  //file picker for reply message
+  //file picker for profile picture
   vm.choosePhoto = function () {
     console.log('in reply picker')
     vm.fsClient.pick({

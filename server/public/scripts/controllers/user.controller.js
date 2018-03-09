@@ -16,12 +16,12 @@ myApp.controller('UserController', ['$scope', 'UserService', function ($scope, U
   }
 
   vm.fsClient = filestack.init('A1JwDWLRvRvgGNT0VV1LBz');
-  //file picker for reply message
+  //file picker for updating profile picture
   vm.newPhoto = function () {
     console.log('in new photo picker')
     vm.fsClient.pick({
       fromSources: ["local_file_system"],
-      accept: ["image/*", "video/*"]
+      accept: ["image/*"]
     }).then(function (response) {
       $scope.$apply(function () {
         vm.editedProfile.profilePicture = response.filesUploaded[0].url;

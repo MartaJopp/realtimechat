@@ -22,6 +22,7 @@ myApp.controller('MessageBoardController', ['UserService', 'MessageService', fun
     console.log('from controller', vm.messages)
   } //end get messages
 
+  //get messages upon logging in
   vm.getMessages()
 
 

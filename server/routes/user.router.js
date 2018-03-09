@@ -28,7 +28,7 @@ router.post('/register', (req, res, next) => {
   const birthday = req.body.birthday
   const occupation = req.body.occupation
   const profilePicture = req.body.profilePicture
-  const newPerson = new Person({ username, password, city, birthday, occupation, profilePicture  });
+  const newPerson = new Person({ username, password, city, birthday, occupation, profilePicture });
   newPerson.save()
     .then(() => { res.sendStatus(201); })
     .catch((err) => { next(err); });
@@ -49,32 +49,51 @@ router.get('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
-router.put('/:id', function(req, res){
-  console.log('req.params', req.params.id)
-  console.log(req.body)
-  let personToUpdate = req.body;
-  let idToUpdate = req.params._id;
-  console.log('update', personToUpdate)
-  // Person.update({ "_id": idToUpdate }, personToUpdate, function (err, personToUpdate) {
-  //   if (err) {
-  Person.update({ "_id": req.user.id }, {
-    $set: {
-      "username": req.body.userName,
-        "occupation": req.body.occupation,
-        "city": req.body.city,
-        "birthday": req.body.birthday,
-        "profilePicture": req.body.profilePicture
-      }
-  }, function (err, personToUpdate) {
-    if (err) {
-      console.log("Error received updating person.", err);
-      res.sendStatus(500);
-    } else {
-      res.sendStatus(204)
-      console.log(personToUpdate)
-      console.log('success')
-    };
-  })
+router.put('/:id', function (req, res) {
+  if (req.isAuthenticated) {
+
+    let personToUpdate = req.body;
+    let idToUpdate = req.params._id;
+
+    //if update is left blank --> keeps original value
+    if (req.body.userName === undefined) {
+      req.body.userName = req.user.username
+    }
+    if (req.body.profilePicture === undefined) {
+      req.body.profilePicture = req.user.profilePicture
+    }
+    if (req.body.occupation === undefined) {
+      req.body.occupation = req.user.occupation
+    }
+    if (req.body.birthday === undefined) {
+      req.body.birthday = req.user.birthday
+    }
+    if (req.body.city === undefined) {
+      req.body.city = req.user.city
+    }
+    
+    Person.update({ "_id": req.user.id }, {
+      $set: {
+        "username": req.body.userName,
+          "occupation": req.body.occupation,
+          "city": req.body.city,
+          "birthday": req.body.birthday,
+          "profilePicture": req.body.profilePicture
+        }
+    }, function (err, personToUpdate) {
+      if (err) {
+        console.log("Error received updating person.", err);
+        res.sendStatus(500);
+      } else {
+        res.sendStatus(204)
+        console.log(personToUpdate)
+        console.log('success')
+      };
+    }) //end update
+  } //end if authenticated
+  else {
+    console.log('User is not authenticated')
+  }
 })//end update route
 
 

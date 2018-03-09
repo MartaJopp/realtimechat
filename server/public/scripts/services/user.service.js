@@ -41,6 +41,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location, s
   self.saveProfile = function(id, editedProfile) {
     console.log(editedProfile, id)
     self.editedUserProfile = editedProfile;
+    console.log(self.editedUserProfile.userName)
     console.log('updated user', self.editedUserProfile)
     return $http.put('/api/user/' + id, self.editedUserProfile).then(function (response){
       return response

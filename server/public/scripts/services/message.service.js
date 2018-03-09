@@ -10,12 +10,12 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
         data: []
     }
 
+    //receives messages realtime
     var socket = io()
     socket.on('message', function (data) {
         console.log('message received', data)
         self.getMessages()
     })
-
 
     //post new message to board
     self.newMessage = function (message) {
@@ -27,9 +27,10 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
         }).catch(function (err) {
             console.log('Error Posting Total');
         })
-    } //end total function
+    } //end new message
 
 
+    //get all messages upon logging in
     self.getMessages = function () {
         console.log('This got called')
         $http.get('/message/').then(function (response) {
@@ -38,6 +39,6 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
         }).catch(function (err) {
             console.log('Error getting messages');
         })
-    } // end getProblems function
+    } // end getMessages function
 
 }]);
