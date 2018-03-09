@@ -63,7 +63,7 @@ router.put('/:id', function(req, res){
         "occupation": req.body.occupation,
         "city": req.body.city,
         "birthday": req.body.birthday,
-        // "profilePicture": req.body.profilePicture
+        "profilePicture": req.body.profilePicture
       }
   }, function (err, personToUpdate) {
     if (err) {

@@ -9,7 +9,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location, s
     console.log('UserService -- getuser');
     $http.get('/api/user').then(function(response) {
         if(response.data.username) {
-            // user has a curret session on the server
+            // user has a current session on the server
             self.userObject.userName = response.data.username;
             console.log('the response', response.data)
             self.userObject.city = response.data.city;
@@ -43,10 +43,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location, s
     self.editedUserProfile = editedProfile;
     console.log('updated user', self.editedUserProfile)
     return $http.put('/api/user/' + id, self.editedUserProfile).then(function (response){
-      console.log(response)
       return response
-      //refresh the user profile based on the changes
-      self.getUser();
     })
   }//end save profile
 }]);

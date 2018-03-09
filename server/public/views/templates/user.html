@@ -21,9 +21,13 @@
                             <input aria-label="username" placeholder="{{vm.userObject.userName}}" ng-model="vm.editedProfile.userName">
                         </h4>
 
-                        <p class="w3-center">
+                        <p ng-show="vm.editProfile" class="w3-center">
                             <img src="{{vm.userObject.profilePicture}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
                         </p>
+                    <p class = "w3-center" ng-hide="vm.editProfile">
+                        <md-button ng-click="vm.newPhoto()" ng-model="vm.editedProfile.profilePicture">New Profile Picture</md-button>
+                        <img src="{{vm.editedProfile.profilePicture}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
+                    </p>
                         <hr>
                         <p ng-show="vm.editProfile">
                             <i class="fa fa-industry fa-fw w3-margin-right w3-text-theme"></i>{{vm.userObject.occupation}}</p>

@@ -1,10 +1,10 @@
-myApp.controller('UserController', ['UserService', function (UserService) {
+myApp.controller('UserController', ['$scope', 'UserService', function ($scope, UserService) {
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
   vm.editProfile = true;
-  // vm.editedProfile = {}
+  vm.editedProfile = {}
 
   vm.updateProfile = function () {
     vm.editProfile = false;
@@ -15,6 +15,19 @@ myApp.controller('UserController', ['UserService', function (UserService) {
     vm.editProfile = true;
   }
 
+  vm.fsClient = filestack.init('A1JwDWLRvRvgGNT0VV1LBz');
+  //file picker for reply message
+  vm.newPhoto = function () {
+    console.log('in new photo picker')
+    vm.fsClient.pick({
+      fromSources: ["local_file_system"],
+      accept: ["image/*", "video/*"]
+    }).then(function (response) {
+      $scope.$apply(function () {
+        vm.editedProfile.profilePicture = response.filesUploaded[0].url;
+      });
+    });
+  } //end choose photo when registering
 
   //update Profile function
   vm.saveProfile = function (id, editedProfile) {
@@ -31,9 +44,7 @@ myApp.controller('UserController', ['UserService', function (UserService) {
     }).catch(function () {
       swal('Something went wrong.');
     });
-
-
-  } //end addRental function
+  } //end update Profile function
 
 
 }]);
