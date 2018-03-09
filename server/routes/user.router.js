@@ -57,9 +57,9 @@ router.put('/:id', function(req, res){
   console.log('update', personToUpdate)
   // Person.update({ "_id": idToUpdate }, personToUpdate, function (err, personToUpdate) {
   //   if (err) {
-  Person.update({ "_id": idToUpdate }, {
+  Person.update({ "_id": req.user.id }, {
     $set: {
-      "username": req.body.username,
+      "username": req.body.userName,
         "occupation": req.body.occupation,
         "city": req.body.city,
         "birthday": req.body.birthday,
