@@ -15,20 +15,25 @@ myApp.controller('UserController', ['UserService', function (UserService) {
     vm.editProfile = true;
   }
 
+
+  //update Profile function
   vm.saveProfile = function (id, editedProfile) {
     console.log(vm.editedProfile)
-    UserService.saveProfile(id, editedProfile).then(function (response){
-    vm.editProfile = true;
-    // })
-    swal({
-      "title": "Updated!",
-      "text": "Your profile has been updated!",
-      "icon": "success"
-    });
+    UserService.saveProfile(id, editedProfile).then(function (response) {
+      vm.editProfile = true;
+      console.log('response', response);
+      UserService.getuser()
+      swal({
+        "title": "Updated!",
+        "text": "Your profile has been updated!",
+        "icon": "success"
+      });
     }).catch(function () {
       swal('Something went wrong.');
-  }
-    )} //end saveProfile
+    });
+
+
+  } //end addRental function
 
 
 }]);

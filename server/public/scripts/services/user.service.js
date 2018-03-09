@@ -44,6 +44,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location, s
     console.log('updated user', self.editedUserProfile)
     return $http.put('/api/user/' + id, self.editedUserProfile).then(function (response){
       console.log(response)
+      return response
       //refresh the user profile based on the changes
       self.getUser();
     })
