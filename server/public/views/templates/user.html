@@ -61,6 +61,7 @@
 
                 <!--Middle Column stuff goes here -->
                 <h1 id="allUsers">All Users:</h1>
+                <h6 id="allUsers">Click on username for profile picture.</h6>
 <div style="overflow-x:auto;" id="allUsers">
     <table>
         <tr>
@@ -70,7 +71,7 @@
             <th> Birthday </th>
             </tr>
             <tr ng-repeat="user in vm.allUsers">
-                <td ng-click="vm.showUserPicture($event, user.profilePicture)">{{user.username}}</td>
+                <td id="clickableUsername" ng-click="vm.showUserPicture($event, user.profilePicture)">{{user.username}}</td>
                 <td>{{user.occupation}}</td>
                 <td>{{user.city}}</td>
                 <td>{{user.birthday | amDateFormat:'MM/D/YYYY'}}</td>
