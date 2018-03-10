@@ -11,6 +11,7 @@
             <!-- Left Column -->
             <div class="w3-col m3">
                 <!-- Profile -->
+                <h1>Your Profile:</h1>
                 <div class="w3-card w3-round w3-white">
                     <div class="w3-container">
                         <p id="editP">
@@ -59,7 +60,22 @@
             <div class="w3-col m7">
 
                 <!--Middle Column stuff goes here -->
-
+                <h1 id="allUsers">All Users:</h1>
+<div style="overflow-x:auto;" id="allUsers">
+    <table>
+        <tr>
+            <th> Username </th>
+            <th> Occupation </th>
+            <th> City </th>
+            <th> Birthday </th>
+            </tr>
+            <tr ng-repeat="user in vm.allUsers">
+                <td>{{user.username}}</td>
+                <td>{{user.occupation}}</td>
+                <td>{{user.city}}</td>
+                <td>{{user.birthday | amDateFormat:'MM/D/YYYY'}}</td>
+            </tr>
+            </table>
             </div>
             <!--end Middle Column-->
         </div>

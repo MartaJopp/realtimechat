@@ -5,6 +5,7 @@ myApp.controller('UserController', ['$scope', 'UserService', function ($scope, U
   vm.userObject = UserService.userObject;
   vm.editProfile = true;
   vm.editedProfile = {}
+  vm.allUsers = [];
 
   vm.updateProfile = function () {
     vm.editProfile = false;
@@ -49,6 +50,7 @@ myApp.controller('UserController', ['$scope', 'UserService', function ($scope, U
   vm.getAllUsers = function() {
     UserService.getAllUsers().then(function (response){
       console.log('All Users Controller', response.data)
+      vm.allUsers = response.data
     }).catch(function (){
       console.log('Error getting all users.')
     })
