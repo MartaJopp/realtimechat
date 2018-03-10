@@ -47,4 +47,12 @@ myApp.service('UserService', ['$http', '$location', function($http, $location, s
       return response
     })
   }//end save profile
+
+  //get all users
+  self.getAllUsers = function () {
+    return $http.get('/api/user/allusers').then(function (response){
+      // console.log('All Users', response.data)
+      return response
+    })
+  }//end get all users
 }]);

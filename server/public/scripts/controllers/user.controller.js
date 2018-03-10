@@ -46,5 +46,14 @@ myApp.controller('UserController', ['$scope', 'UserService', function ($scope, U
     });
   } //end update Profile function
 
+  vm.getAllUsers = function() {
+    UserService.getAllUsers().then(function (response){
+      console.log('All Users Controller', response.data)
+    }).catch(function (){
+      console.log('Error getting all users.')
+    })
+  }
+
+  vm.getAllUsers()
 
 }]);

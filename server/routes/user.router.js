@@ -71,7 +71,7 @@ router.put('/:id', function (req, res) {
     if (req.body.city === undefined) {
       req.body.city = req.user.city
     }
-    
+
     Person.update({ "_id": req.user.id }, {
       $set: {
         "username": req.body.userName,
@@ -86,7 +86,6 @@ router.put('/:id', function (req, res) {
         res.sendStatus(500);
       } else {
         res.sendStatus(204)
-        console.log(personToUpdate)
         console.log('success')
       };
     }) //end update
@@ -96,5 +95,21 @@ router.put('/:id', function (req, res) {
   }
 })//end update route
 
+//get all registered users
+router.get('/allusers', (req, res) => {
+  // check if logged in
+  if (req.isAuthenticated()) {
+    Person.find({}).sort({ username: 1 }).exec(function (err, allUsers) { //finding all rentals in collection
+      if (err) {
+        console.log("ERROR!", err);
+        res.sendStatus(500);
+      } else {
+        res.send(allUsers);
+      }
+    }); // END FIND
+  } else {
+    console.log('Users is not authenticated')
+  }
+}); //end get list of all users
 
 module.exports = router;
