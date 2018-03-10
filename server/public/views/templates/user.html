@@ -70,7 +70,7 @@
             <th> Birthday </th>
             </tr>
             <tr ng-repeat="user in vm.allUsers">
-                <td>{{user.username}}</td>
+                <td ng-click="vm.showUserPicture($event, user.profilePicture)">{{user.username}}</td>
                 <td>{{user.occupation}}</td>
                 <td>{{user.city}}</td>
                 <td>{{user.birthday | amDateFormat:'MM/D/YYYY'}}</td>

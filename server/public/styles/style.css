@@ -183,3 +183,8 @@ tr:nth-child(even){background-color: #f2f2f2}
 #allUsers {
   margin: 20px;
 }
+
+#popupImage {
+  max-height: 500PX;
+  width: auto;
+}

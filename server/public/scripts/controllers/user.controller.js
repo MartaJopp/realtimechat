@@ -1,4 +1,4 @@
-myApp.controller('UserController', ['$scope', 'UserService', function ($scope, UserService) {
+myApp.controller('UserController', ['$scope', '$mdDialog', 'UserService', function ($scope, $mdDialog, UserService) {
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;
@@ -57,5 +57,10 @@ myApp.controller('UserController', ['$scope', 'UserService', function ($scope, U
   }
 
   vm.getAllUsers()
+
+  // displays user profile picture as popup
+  vm.showUserPicture = function (event, picture) {
+  UserService.showUserPicture(event, picture) 
+ }
 
 }]);
