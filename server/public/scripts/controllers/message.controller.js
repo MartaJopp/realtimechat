@@ -13,7 +13,7 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
     console.log('clicked')
     MessageService.newMessage(message).then(function (response) {
       vm.sendMessage.message = '';
-      vm.messagePicture = '';
+      vm.sendMessage.messagePicture = '';
       vm.showPicture = false;
     }).catch(function (error) {
       console.log('An error occurred.')
