@@ -42,10 +42,11 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
         vm.showPicture = true;
       });
     });
-  } //end choose photo when registering
+    vm.sendMessage.messagePicture = '';
+  } //end choose photo for message
 
   vm.cancelAddPhoto = function () {
-    vm.messagePicture = '';
+    vm.sendMessage.messagePicture = '';
     vm.showPicture = false;
   }
 // vm.messagePhoto = function () {
