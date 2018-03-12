@@ -3,7 +3,8 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
     var self = this;
 
     self.sendMessage = {
-        message: ''
+        message: '',
+        messagePicture: ''
     }
 
     self.messages = {
@@ -19,14 +20,15 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
 
     //post new message to board
     self.newMessage = function (message) {
-        self.sendMessage.message = message;
+        self.sendMessage.message = message.message;
+        self.sendMessage.messagePicture = message.messagePicture;
         console.log(self.sendMessage);
         console.log('here')
-        return $http.post('/message/', self.sendMessage).then(function (response) {
-            console.log('Success');
-        }).catch(function (err) {
-            console.log('Error Posting Total');
-        })
+        // return $http.post('/message/', self.sendMessage).then(function (response) {
+        //     console.log('Success');
+        // }).catch(function (err) {
+        //     console.log('Error Posting Total');
+        // })
     } //end new message
 
 
@@ -40,5 +42,11 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
             console.log('Error getting messages');
         })
     } // end getMessages function
+
+    //add photo with message
+    // self.messagePhoto = function () {
+    //     console.log('add photo clicked')
+    // }
+
 
 }]);

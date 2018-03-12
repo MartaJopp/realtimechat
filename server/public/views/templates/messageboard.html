@@ -45,12 +45,18 @@
               <div class="w3-col m10">
                 <md-input-container class="md-block messageBlock">
                   <!-- <label>Message</label> -->
-                  <textarea id="messageText" ng-model="mb.message" placeholder="Enter message here." md-maxlength="300" rows="2" md-select-on-focus></textarea>
+                  <textarea id="messageText" ng-model="mb.sendMessage.message" placeholder="Enter message here." md-maxlength="300" rows="2" md-select-on-focus>
+                  </textarea>
+                  <img ng-show="mb.showPicture" src="{{mb.sendMessage.messagePicture}}" class="w3-circle" style="height:106px;width:106px" alt="linked picture">
+
                 </md-input-container>
               </div>
               <div class="w3-col m1 buttonFooter">
 
-                <md-button ng-click="mb.newMessage(mb.message)" class="md-raised">Send</md-button>
+                <md-button ng-click="mb.newMessage(mb.sendMessage)" class="md-raised">Send</md-button>
+                <md-button ng-hide="mb.showPicture" ng-click="mb.messagePhoto()" ng-model="mb.sendMessage.messagePicture" class="md-raised">Add Photo</md-button>
+                <md-button ng-show="mb.showPicture" ng-click="mb.cancelAddPhoto()" class="md-raised">Cancel Add Photo</md-button>
+
               </div>
             </div>
           </footer>
