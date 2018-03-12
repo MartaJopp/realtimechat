@@ -26,7 +26,5 @@ myApp.controller('NavBarController', ['UserService', 'MessageService', function 
         }
     }
 
-    //     vm.logout = function () {
-    // UserService.logout()
-    //     }
+
 }]); // end NavBar Controller

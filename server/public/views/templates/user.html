@@ -25,10 +25,10 @@
                         <p ng-show="vm.editProfile" class="w3-center">
                             <img src="{{vm.userObject.profilePicture}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
                         </p>
-                    <p class = "w3-center" ng-hide="vm.editProfile">
-                        <md-button ng-click="vm.newPhoto()" ng-model="vm.editedProfile.profilePicture">New Profile Picture</md-button>
-                        <img src="{{vm.editedProfile.profilePicture}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
-                    </p>
+                        <p class="w3-center" ng-hide="vm.editProfile">
+                            <md-button ng-click="vm.newPhoto()" ng-model="vm.editedProfile.profilePicture">New Profile Picture</md-button>
+                            <img src="{{vm.editedProfile.profilePicture}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
+                        </p>
                         <hr>
                         <p ng-show="vm.editProfile">
                             <i class="fa fa-industry fa-fw w3-margin-right w3-text-theme"></i>{{vm.userObject.occupation}}</p>
@@ -62,27 +62,27 @@
                 <!--Middle Column stuff goes here -->
                 <h1 id="allUsers">All Users:</h1>
                 <h6 id="allUsers">Click on username for profile picture.</h6>
-<div style="overflow-x:auto;" id="allUsers">
-    <table>
-        <tr>
-            <th> Username </th>
-            <th> Occupation </th>
-            <th> City </th>
-            <th> Birthday </th>
-            </tr>
-            <tr ng-repeat="user in vm.allUsers">
-                <td id="clickableUsername" ng-click="vm.showUserPicture($event, user.profilePicture)">{{user.username}}</td>
-                <td>{{user.occupation}}</td>
-                <td>{{user.city}}</td>
-                <td>{{user.birthday | amDateFormat:'MM/D/YYYY'}}</td>
-            </tr>
-            </table>
+                <div style="overflow-x:auto;" id="allUsers">
+                    <table>
+                        <tr>
+                            <th> Username </th>
+                            <th> Occupation </th>
+                            <th> City </th>
+                            <th> Birthday </th>
+                        </tr>
+                        <tr ng-repeat="user in vm.allUsers">
+                            <td id="clickableUsername" ng-click="vm.showUserPicture($event, user.profilePicture)">{{user.username}}</td>
+                            <td>{{user.occupation}}</td>
+                            <td>{{user.city}}</td>
+                            <td>{{user.birthday | amDateFormat:'MM/D/YYYY'}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <!--end Middle Column-->
             </div>
-            <!--end Middle Column-->
         </div>
+        <footer class="w3-container w3-theme-d5 bottomFooter">
+            <p>Real Time Chat
+            </p>
+        </footer>
     </div>
-    <footer class="w3-container w3-theme-d5 bottomFooter">
-        <p>Real Time Chat
-        </p>
-    </footer>
-</div>

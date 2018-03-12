@@ -30,7 +30,7 @@
 
         <div ng-repeat="message in mb.messages.data" class="w3-container w3-card w3-white w3-round w3-margin">
           <br>
-          <img src = "{{message.image}}" alt="Profile Picture" class="w3-left w3-circle w3-margin-right" style="width:60px">
+          <img src="{{message.image}}" alt="Profile Picture" class="w3-left w3-circle w3-margin-right" style="width:60px">
           <span class="w3-right w3-opacity">{{message.created_at | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}}</span>
           <h4>{{message.posted_by}}</h4>
           <br>
@@ -45,7 +45,7 @@
               <div class="w3-col m10">
                 <md-input-container class="md-block messageBlock">
                   <!-- <label>Message</label> -->
-                  <textarea id = "messageText" ng-model="mb.message" placeholder="Enter message here." md-maxlength="300" rows="2" md-select-on-focus></textarea>
+                  <textarea id="messageText" ng-model="mb.message" placeholder="Enter message here." md-maxlength="300" rows="2" md-select-on-focus></textarea>
                 </md-input-container>
               </div>
               <div class="w3-col m1 buttonFooter">

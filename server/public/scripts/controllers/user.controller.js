@@ -47,11 +47,11 @@ myApp.controller('UserController', ['$scope', '$mdDialog', 'UserService', functi
     });
   } //end update Profile function
 
-  vm.getAllUsers = function() {
-    UserService.getAllUsers().then(function (response){
+  vm.getAllUsers = function () {
+    UserService.getAllUsers().then(function (response) {
       console.log('All Users Controller', response.data)
       vm.allUsers = response.data
-    }).catch(function (){
+    }).catch(function () {
       console.log('Error getting all users.')
     })
   }
@@ -60,7 +60,7 @@ myApp.controller('UserController', ['$scope', '$mdDialog', 'UserService', functi
 
   // displays user profile picture as popup
   vm.showUserPicture = function (event, picture) {
-  UserService.showUserPicture(event, picture) 
- }
+    UserService.showUserPicture(event, picture)
+  }
 
 }]);
