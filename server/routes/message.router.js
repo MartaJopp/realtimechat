@@ -13,6 +13,7 @@ module.exports = function (io) {
     router.post('/', function (req, res) {
         if (req.isAuthenticated) {
             console.log(req.user.id)
+            console.log('reqbody', req.body)
             var messageToSave = new Message(req.body);
             messageToSave.posted_by = req.user.username;
             messageToSave.image = req.user.profilePicture;
