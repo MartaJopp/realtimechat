@@ -45,6 +45,7 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
     vm.sendMessage.messagePicture = '';
   } //end choose photo for message
 
+  //cancels and clears out the photo
   vm.cancelAddPhoto = function () {
     vm.sendMessage.messagePicture = '';
     vm.showPicture = false;
