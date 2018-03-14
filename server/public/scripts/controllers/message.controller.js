@@ -50,8 +50,23 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
     vm.sendMessage.messagePicture = '';
     vm.showPicture = false;
   }
-// vm.messagePhoto = function () {
-//   MessageService.messagePhoto()
-// }
+
+//functions to vote counters - already added to message schema
+//need to complete put route to server
+  vm.voteHeart = function () {
+    console.log('Heart Clicked')
+  } //end voteHeart
+
+  vm.voteThumbsUp = function () {
+    console.log('Thumbs Up Clicked')
+  } //end Thumbsup
+
+  vm.voteThumbsDown = function () {
+    console.log('Thumbs Down Clicked')
+  } //end Thumbsdown
+
+  vm.voteSmile = function () {
+    console.log('Smile Clicked')
+  } //end voteSmile
 
 }]);

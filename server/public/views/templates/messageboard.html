@@ -38,10 +38,10 @@
           <img src="{{message.messagePicture}}" id="messagePictures" style="width:200px; height:auto">
           <p>{{message.message}}</p>
           <p>
-            <i class="fa fa-smile-o fa-fw w3-margin-right w3-text-theme"></i>
-            <i class="fa fa-thumbs-o-up fa-fw w3-margin-right w3-text-theme"></i>                
-            <i class="fa fa-thumbs-o-down fa-fw w3-margin-right w3-text-theme"></i>
-            <i class="fa fa-heart-o fa-fw w3-margin-right w3-text-theme"></i>
+            <i ng-click ="mb.voteSmile()" class="fa fa-smile-o fa-fw w3-margin-right w3-text-theme"></i>
+            <i ng-click ="mb.voteThumbsUp()" class="fa fa-thumbs-o-up fa-fw w3-margin-right w3-text-theme"></i>                
+            <i ng-click ="mb.voteThumbsDown()" class="fa fa-thumbs-o-down fa-fw w3-margin-right w3-text-theme"></i>
+            <i ng-click ="mb.voteHeart()" class="fa fa-heart-o fa-fw w3-margin-right w3-text-theme"></i>
 
           </p>
         </div>
