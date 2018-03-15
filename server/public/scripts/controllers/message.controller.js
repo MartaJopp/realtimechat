@@ -7,6 +7,10 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
   vm.userObject = UserService.userObject
   vm.showPicture = false;
   vm.sendMessage = MessageService.sendMessage;
+  vm.heartFilled = false;
+  vm.smileFilled = false;
+  vm.thumbsUpFilled = false;
+  vm.thumbsDownFilled = false;
 
   //post new message from input
   vm.newMessage = function (message) {
@@ -55,6 +59,9 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
 //need to complete put route to server
   vm.voteHeart = function () {
     console.log('Heart Clicked')
+    MessageService.voteHeart().then(function (response){
+
+    })
   } //end voteHeart
 
   vm.voteThumbsUp = function () {
@@ -67,6 +74,9 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
 
   vm.voteSmile = function () {
     console.log('Smile Clicked')
+    console.log(vm.smileFilled)
+    vm.smileFilled = true;
+    console.log(vm.smileFilled)
   } //end voteSmile
 
 }]);

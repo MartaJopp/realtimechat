@@ -194,4 +194,8 @@ tr:nth-child(even){background-color: #f2f2f2}
 }
 
  tr:hover {
-background-color:#607d8b}        
+background-color:#607d8b}   
+
+.vote {
+  cursor: pointer;
+}

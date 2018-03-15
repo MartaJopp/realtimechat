@@ -38,10 +38,12 @@
           <img src="{{message.messagePicture}}" id="messagePictures" style="width:200px; height:auto">
           <p>{{message.message}}</p>
           <p>
-            <i ng-click ="mb.voteSmile()" class="fa fa-smile-o fa-fw w3-margin-right w3-text-theme"></i>
-            <i ng-click ="mb.voteThumbsUp()" class="fa fa-thumbs-o-up fa-fw w3-margin-right w3-text-theme"></i>                
-            <i ng-click ="mb.voteThumbsDown()" class="fa fa-thumbs-o-down fa-fw w3-margin-right w3-text-theme"></i>
-            <i ng-click ="mb.voteHeart()" class="fa fa-heart-o fa-fw w3-margin-right w3-text-theme"></i>
+            <i ng-hide="mb.smileFilled" ng-click="mb.voteSmile()" class="fa fa-smile-o fa-fw w3-margin-right w3-text-theme vote"></i>
+            <i ng-show="mb.smileFilled" class="fa fa-star fa-fw w3-margin-right w3-text-theme"></i>
+            <i ng-click="mb.voteThumbsUp()" class="fa fa-thumbs-o-up fa-fw w3-margin-right w3-text-theme vote"></i>
+            <i ng-click="mb.voteThumbsDown()" class="fa fa-thumbs-o-down fa-fw w3-margin-right w3-text-theme vote"></i>
+            <i ng-hide="mb.heartFilled" ng-click="mb.voteHeart()" class="fa fa-heart-o fa-fw w3-margin-right w3-text-theme vote"></i>
+            <i ng-show="mb.heartFilled" class="fa fa-heart-o fa-fw w3-margin-right w3-text-theme"></i>
 
           </p>
         </div>
@@ -53,9 +55,11 @@
               <div class="w3-col m10">
                 <md-input-container class="md-block messageBlock">
                   <!-- <label>Message</label> -->
-                  <textarea id="messageText" ng-model="mb.sendMessage.message" placeholder="Enter message here." md-maxlength="300" rows="2" md-select-on-focus>
+                  <textarea id="messageText" ng-model="mb.sendMessage.message" placeholder="Enter message here." md-maxlength="300" rows="2"
+                    md-select-on-focus>
                   </textarea>
-                  <img ng-show="mb.showPicture" src="{{mb.sendMessage.messagePicture}}" class="w3-circle" style="height:106px;width:106px" alt="linked picture">
+                  <img ng-show="mb.showPicture" src="{{mb.sendMessage.messagePicture}}" class="w3-circle" style="height:106px;width:106px"
+                    alt="linked picture">
 
                 </md-input-container>
               </div>

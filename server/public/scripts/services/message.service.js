@@ -42,10 +42,11 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
         })
     } // end getMessages function
 
-    //add photo with message
-    // self.messagePhoto = function () {
-    //     console.log('add photo clicked')
-    // }
+    // vote smile 
+    self.voteSmile = function () {
+        console.log('vote smile in message service')
+
+    } // end voteSmile 
 
 
 }]);
