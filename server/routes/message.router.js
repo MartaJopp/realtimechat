@@ -54,9 +54,7 @@ module.exports = function (io) {
         }
     }); // END GET Route
 
-    // router.get('/', function (req, res) {
-    //     res.sendFile(__dirname + '/public/index.html');
-    // });
+//    router.put('/:id', function (req))
 
     return router;
 }

@@ -11,6 +11,10 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
         data: []
     }
 
+    self.addSmile = {
+        smile: '',
+    }
+
     //receives messages realtime
     var socket = io()
     socket.on('message', function (data) {
@@ -42,9 +46,15 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
         })
     } // end getMessages function
 
-    // vote smile 
-    self.voteSmile = function () {
+    // add +1 to smile 
+    self.voteSmile = function (id) {
         console.log('vote smile in message service')
+        console.log(id)
+        // $http.put('/message/' + id, addSmile ).then(function (response){
+        //     console.log(response)
+        // }).catch(function (err){
+        //     console.log('Error voting for smile');
+        // })
 
     } // end voteSmile 
 
