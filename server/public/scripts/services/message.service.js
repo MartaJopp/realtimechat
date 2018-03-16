@@ -15,6 +15,8 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
         smile: '',
     }
 
+   
+
     //receives messages realtime
     var socket = io()
     socket.on('message', function (data) {
@@ -24,6 +26,8 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
 
     socket.on('smileVotes', function (data){
         console.log('vote received', data)
+        // self.messages.data.smile = data
+
         //probably need to call some sort of function here
     })
 

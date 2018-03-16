@@ -38,8 +38,8 @@
           <img src="{{message.messagePicture}}" id="messagePictures" style="width:200px; height:auto">
           <p>{{message.message}}</p>
           <p>
-            <i ng-hide="mb.smileFilled" ng-click="mb.voteSmile(message._id)" class="fa fa-smile-o fa-fw w3-margin-right w3-text-theme vote"></i>
-            <i ng-show="mb.smileFilled" class="fa fa-star fa-fw w3-margin-right w3-text-theme"></i>
+            <i ng-hide="mb.smileFilled" ng-click="mb.voteSmile(message._id)" class="fa fa-smile-o fa-fw w3-margin-right w3-text-theme vote">{{message.smile}}</i>
+            <i ng-show="mb.smileFilled" class="fa fa-star fa-fw w3-margin-right w3-text-theme">{{message.smile}}</i>
             <i ng-click="mb.voteThumbsUp(message._id)" class="fa fa-thumbs-o-up fa-fw w3-margin-right w3-text-theme vote"></i>
             <i ng-click="mb.voteThumbsDown(message._id)" class="fa fa-thumbs-o-down fa-fw w3-margin-right w3-text-theme vote"></i>
             <i ng-hide="mb.heartFilled" ng-click="mb.voteHeart(message._id)" class="fa fa-heart-o fa-fw w3-margin-right w3-text-theme vote"></i>

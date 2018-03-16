@@ -79,8 +79,12 @@ module.exports = function (io) {
                             console.log("ERROR!", err);
                             res.sendStatus(500);
                         } else {
-                            console.log('what found', message)
-                            // res.send(messages);
+                            console.log('what found', message[0].smile)
+                            var toSend = {
+                                smiles: message[0].smile,
+                                id: message[0]._id
+                            }
+                            io.emit("smileVotes", toSend)
                         }
                     }); // END FIND
                     // res.sendStatus(204)
