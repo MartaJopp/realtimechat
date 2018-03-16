@@ -54,7 +54,24 @@ module.exports = function (io) {
         }
     }); // END GET Route
 
-//    router.put('/:id', function (req))
+    //add smile vote 
+ //need to create a schema with user id, message id and type of vote
+ //then on get messages --> also need to get vote types and do ng-show
+ //or hide depending on vote status, change class to different if 
+ //already been voted so cursor is not a pointer
+ //so upon voting --> a post will go to the other schema and an update to
+ //the message schema
+    router.put('/:id', function (req, res) {
+        if (req.isAuthenticated) {
+            console.log('user id', req.user.id)
+            console.log('messageid', req.params.id)
+            console.log('body', req.body)
+            
+        }//end if authenticated
+        else {
+            console.log('User is not authenticated.')
+        }//end not authenticated
+    })//end update votes
 
     return router;
 }

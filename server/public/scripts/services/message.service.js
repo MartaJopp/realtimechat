@@ -50,11 +50,11 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
     self.voteSmile = function (id) {
         console.log('vote smile in message service')
         console.log(id)
-        // $http.put('/message/' + id, addSmile ).then(function (response){
-        //     console.log(response)
-        // }).catch(function (err){
-        //     console.log('Error voting for smile');
-        // })
+        $http.put('/message/' + id, self.addSmile ).then(function (response){
+            console.log(response)
+        }).catch(function (err){
+            console.log('Error voting for smile');
+        })
 
     } // end voteSmile 
 
