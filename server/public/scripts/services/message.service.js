@@ -22,6 +22,11 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
         self.getMessages()
     })
 
+    socket.on('smileVotes', function (data){
+        console.log('vote received', data)
+        //probably need to call some sort of function here
+    })
+
     //post new message to board
     self.newMessage = function (message) {
         self.sendMessage.message = message.message;
@@ -47,9 +52,12 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
     } // end getMessages function
 
     // add +1 to smile 
-    self.voteSmile = function (id) {
+    self.voteSmile = function (id, smileNumber) {
+        console.log(smileNumber)
         console.log('vote smile in message service')
-        console.log(id)
+        self.addSmile.smile = smileNumber + 1;
+        console.log(self.addSmile.smile);
+        console.log(id);
         $http.put('/message/' + id, self.addSmile ).then(function (response){
             console.log(response)
         }).catch(function (err){
