@@ -15,7 +15,9 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
         smile: '',
     }
 
-   
+   self.getSpecificMessage = {
+       id: ''
+   }
 
     //receives messages realtime
     var socket = io()
@@ -27,10 +29,17 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
     socket.on('smileVotes', function (data){
         console.log('vote received', data)
         // self.messages.data.smile = data
+        var id = data._id
+        console.log(data._id)
+        self.getThisMessage(id)
 
+    
         //probably need to call some sort of function here
     })
 
+    self.getThisMessage = function (id) {
+console.log('in get this message', id)
+    }
     //post new message to board
     self.newMessage = function (message) {
         self.sendMessage.message = message.message;
