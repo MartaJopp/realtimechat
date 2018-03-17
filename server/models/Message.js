@@ -14,5 +14,9 @@ const MessageSchema = new Schema({
     smile: { type: Number, default: 0 }
 })
 
+//could create an empty array and push userIDs of votes into - loop through
+//each time and check if that user has already voted?
+//or each vote type can be it's own object with properties of a number of votes
+//and also a list of who has voted and is returned in the get request
 
 module.exports = mongoose.model('Message', MessageSchema);
