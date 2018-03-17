@@ -9,7 +9,8 @@ module.exports = function (io) {
 
     let Persons = require('../models/Person.js');
     let Message = require('../models/Message.js')
-    //post the calculation to the database
+
+    //post the message to the database
     router.post('/', function (req, res) {
         if (req.isAuthenticated) {
             console.log(req.user.id)
@@ -43,7 +44,8 @@ module.exports = function (io) {
                 "created_at": {
                     $lt: new Date(),
                     $gte: new Date(new Date().setDate(new Date().getDate() - 14))
-                } }).sort({ _id: -1 }).exec(function (err, messages) {
+                }
+            }).sort({ _id: -1 }).exec(function (err, messages) {
                 if (err) {
                     console.log("ERROR!", err);
                     res.sendStatus(500);
@@ -65,6 +67,9 @@ module.exports = function (io) {
     //already been voted so cursor is not a pointer
     //so upon voting --> a post will go to the other schema and an update to
     //the message schema
+
+    //smile schema added - need to adjust where the vote is being
+    //updated
     router.put('/:id', function (req, res) {
         if (req.isAuthenticated) {
             console.log('user id', req.user.id)
