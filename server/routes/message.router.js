@@ -39,7 +39,11 @@ module.exports = function (io) {
         if (req.isAuthenticated) {
 
             //find chats - sort by most recent
-            Message.find({}).sort({ _id: -1 }).exec(function (err, messages) {
+            Message.find({
+                "created_at": {
+                    $lt: new Date(),
+                    $gte: new Date(new Date().setDate(new Date().getDate() - 14))
+                } }).sort({ _id: -1 }).exec(function (err, messages) {
                 if (err) {
                     console.log("ERROR!", err);
                     res.sendStatus(500);
