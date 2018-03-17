@@ -2,6 +2,15 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+const HeartSchema = new Schema({
+    votes: { type: Number, default: 0 },
+    byWho: { type: Array }
+})
+
+var Heart = mongoose.model('Hearts', HeartSchema);
+
+
+//w/ SmileSchema
 const MessageSchema = new Schema({
     message: { type: String },
     created_at: { type: Date, required: true, default: Date.now },
@@ -11,8 +20,21 @@ const MessageSchema = new Schema({
     heart: { type: Number, default: 0 },
     thumbs_up: { type: Number, default: 0 },
     thumbs_down: { type: Number, default: 0 },
-    smile: { type: Number, default: 0 }
+    smile: [SmileSchema]
 })
+
+//original MessageSchema
+// const MessageSchema = new Schema({
+//     message: { type: String },
+//     created_at: { type: Date, required: true, default: Date.now },
+//     posted_by: { type: String },
+//     image: { type: String },
+//     messagePicture: { type: String },
+//     heart: { type: Number, default: 0 },
+//     thumbs_up: { type: Number, default: 0 },
+//     thumbs_down: { type: Number, default: 0 },
+//     smile: { type: Number, default: 0 }
+// })
 
 //could create an empty array and push userIDs of votes into - loop through
 //each time and check if that user has already voted?
