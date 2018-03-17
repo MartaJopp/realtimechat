@@ -31,5 +31,6 @@ const MessageSchema = new Schema({
 // });
 //and then above it would be heart: [HeartSchema]
 // var Heart = mongoose.model('Hearts', HeartSchema);
+//this schema would go above the Message Schema
 
 module.exports = mongoose.model('Message', MessageSchema);
