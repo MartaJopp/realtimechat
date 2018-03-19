@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const HeartSchema = new Schema({
+const SmileSchema = new Schema({
     votes: { type: Number, default: 0 },
     byWho: { type: Array }
 })
 
-var Heart = mongoose.model('Hearts', HeartSchema);
+var Heart = mongoose.model('Smiles', SmileSchema);
 
 
 //w/ SmileSchema

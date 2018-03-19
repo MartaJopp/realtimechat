@@ -70,37 +70,50 @@ module.exports = function (io) {
 
     //smile schema added - need to adjust where the vote is being
     //updated
+
+    // Room.findById(roomId, function (err, room) {
+    //     if (!err) {
+    //         //we can find the user easily and update the name
+    //         room.users(_id).name = 'Bob';
+    //         room.save(function (err) {
+    //             // do something
+    //         });
+    //     }
+    // });
+
     router.put('/:id', function (req, res) {
         if (req.isAuthenticated) {
             console.log('user id', req.user.id)
             console.log('messageid', req.params.id)
             console.log('body', req.body)
             let smileUpdate = req.body
-            Message.update({ "_id": req.params.id }, {
-                $inc: { "smile": 1 }
-            }, function (err, smileUpdate) {
-                if (err) {
-                    console.log("Error received updating person.", err);
-                    res.sendStatus(500);
-                } else {
-                    Message.find({ "_id": req.params.id }).exec(function (err, message) {
+            // Message.findOne({ "_id": req.params.id }, {
+            //     $inc: { "votes": 1 }, 
+
+            // }, function (err, smileUpdate) {
+            //     if (err) {
+            //         console.log("Error received updating person.", err);
+            //         res.sendStatus(500);
+            //     } else {
+                    Message.findOne({ "_id": req.params.id }).exec(function (err, message) {
                         if (err) {
                             console.log("ERROR!", err);
                             res.sendStatus(500);
                         } else {
-                            console.log('what found', message[0].smile)
-                            var toSend = {
-                                smiles: message[0].smile,
-                                id: message[0]._id
-                            }
-                            io.emit("smileVotes", toSend)
-                        }
-                    }); // END FIND
+                            console.log('votes', message.smile)
+                            
+                            message.smile.votes = 4
+                            
+                            console.log('after voting', message.smile.votes) 
+                                message.save(function (err) {
+                            io.emit("smileVotes")
+                                }
+                            )
+                    
+                    } // END FIND
                     // res.sendStatus(204)
                     // console.log('success')
                     // io.emit("smileVotes", Message.smile)
-
-                };
             }) //end update
         } //end if authenticated
         else {
