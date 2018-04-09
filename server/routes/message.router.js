@@ -60,52 +60,39 @@ module.exports = function (io) {
         }
     }); // END GET Route
 
-    //add smile vote 
-    //need to create a schema with user id, message id and type of vote
-    //then on get messages --> also need to get vote types and do ng-show
-    //or hide depending on vote status, change class to different if 
-    //already been voted so cursor is not a pointer
-    //so upon voting --> a post will go to the other schema and an update to
-    //the message schema
-
-    //smile schema added - need to adjust where the vote is being
-    //updated
-
-    // Room.findById(roomId, function (err, room) {
-    //     if (!err) {
-    //         //we can find the user easily and update the name
-    //         room.users(_id).name = 'Bob';
-    //         room.save(function (err) {
-    //             // do something
-    //         });
-    //     }
-    // });
-
+    //update votes
     router.put('/:id', function (req, res) {
         if (req.isAuthenticated) {
             console.log('user id', req.user.id)
             console.log('messageid', req.params.id)
-            console.log('body', req.body)
-            let smileUpdate = req.body
-            // Message.findOne({ "_id": req.params.id }, {
-            //     $inc: { "votes": 1 }, 
-
-            // }, function (err, smileUpdate) {
-            //     if (err) {
-            //         console.log("Error received updating person.", err);
-            //         res.sendStatus(500);
-            //     } else {
-                    Message.findOne({ "_id": req.params.id }).exec(function (err, message) {
+            console.log('body', req.body)  
+            var voteUpdate;
+            if (req.body.smile) {
+                voteUpdate = 'smile'
+            }
+            if (req.body.thumbs_down) {
+                voteUpdate = 'thumbs_down'
+            }
+            if (req.body.thums_up){
+                voteUpdate = 'thumbs_up'
+            }
+            if (req.body.heart) {
+                voteUpdate = 'heart'
+            }
+            Message.findOne({ "_id": req.params.id }).exec(function (err, smileUpdate) {
                         if (err) {
                             console.log("ERROR!", err);
                             res.sendStatus(500);
                         } else {
-                            console.log('votes', message.smile)
-                            
-                            message.smile.votes = 4
-                            
-                            console.log('after voting', message.smile.votes) 
-                                message.save(function (err) {
+                            {
+                                $set: {
+                                    vote: 10
+                                } }
+// voteUpdate.byWho.push(req.user.id)
+
+                                smileUpdate.save(function (err) 
+                                
+                                {
                             io.emit("smileVotes")
                                 }
                             )
