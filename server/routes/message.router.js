@@ -79,18 +79,17 @@ module.exports = function (io) {
             if (req.body.heart) {
                 voteUpdate = 'heart'
             }
-            Message.findOne({ "_id": req.params.id }).exec(function (err, smileUpdate) {
+            Message.update({"_id": req.params.id}, {'$set': {'voteUpdate.votes': 10}}).
+            exec(function (err, smileUpdate){
+            
+            // findOne({ "_id": req.params.id }).exec(function (err, smileUpdate) {
                         if (err) {
                             console.log("ERROR!", err);
                             res.sendStatus(500);
                         } else {
-                            {
-                                $set: {
-                                  "voteUpdate": {
-                                      votes: 1
-                                  }
-                            }
-                        }
+                // smileUpdate.update({$set: {voteUpdate: {votes: 10}}})
+
+                   
 
 console.log('vote Update', voteUpdate)
 console.log('smile update', smileUpdate)
