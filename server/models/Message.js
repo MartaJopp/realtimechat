@@ -8,7 +8,7 @@ const SmileSchema = new Schema({
     byWho: { type: Array }
 })
 
-var Heart = mongoose.model('Smiles', SmileSchema);
+var Smile = mongoose.model('Smiles', SmileSchema);
 
 
 //w/ SmileSchema
@@ -21,7 +21,10 @@ const MessageSchema = new Schema({
     heart: { type: Number, default: 0 },
     thumbs_up: { type: Number, default: 0 },
     thumbs_down: { type: Number, default: 0 },
-    smile: [SmileSchema]
+    smile: {
+        votes: {type: Number, default: 0},
+        byWho: {type: Array}
+    }
 })
 
 //original MessageSchema

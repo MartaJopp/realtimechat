@@ -79,39 +79,36 @@ module.exports = function (io) {
             if (req.body.heart) {
                 voteUpdate = 'heart'
             }
-            Message.update({"_id": req.params.id}, {'$set': {'voteUpdate.votes': 10}}).
-            exec(function (err, smileUpdate){
-            
-            // findOne({ "_id": req.params.id }).exec(function (err, smileUpdate) {
+            Message.findOne({ "_id": req.params.id }).exec(function (err, smileUpdate) {
                         if (err) {
                             console.log("ERROR!", err);
                             res.sendStatus(500);
                         } else {
-                // smileUpdate.update({$set: {voteUpdate: {votes: 10}}})
+                console.log('smile', smileUpdate.smile)
 
-                   
-
+smileUpdate.smile.votes = 1;
 console.log('vote Update', voteUpdate)
 console.log('smile update', smileUpdate)
-
-                                smileUpdate.save(function (err) 
-                                
-                                {
-                            io.emit("smileVotes")
-                                }
-                            )
                     
-                    } // END FIND
-                    // res.sendStatus(204)
-                    // console.log('success')
-                    // io.emit("smileVotes", Message.smile)
-            }) //end update
+                                smileUpdate.save(function (err, smileUpdate) {
+                        
+                            // io.emit("smileVotes")
+                            //     }
+                          
+                    
+                    res.sendStatus(204)
+                    console.log('success')
+                    io.emit("smileVotes", Message.smile)
+                        }
+                        )}
+    })
         } //end if authenticated
+ 
         else {
             console.log('User is not authenticated')
         }//end not authenticated
+    
     })//end update votes
-
 
 
     return router;
