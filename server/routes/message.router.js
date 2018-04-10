@@ -86,9 +86,14 @@ module.exports = function (io) {
                         } else {
                             {
                                 $set: {
-                                    vote: 10
-                                } }
-// voteUpdate.byWho.push(req.user.id)
+                                  "voteUpdate": {
+                                      votes: 1
+                                  }
+                            }
+                        }
+
+console.log('vote Update', voteUpdate)
+console.log('smile update', smileUpdate)
 
                                 smileUpdate.save(function (err) 
                                 
