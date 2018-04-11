@@ -60,7 +60,10 @@ module.exports = function (io) {
         }
     }); // END GET Route
 
-    //update votes
+    //update votes need to do logic for type of vote and also 
+    //if has already voted they can't --> should also be
+    //able to do that on the get messages and disable a button
+    //if user has already voted for that 
     router.put('/:id', function (req, res) {
         if (req.isAuthenticated) {
             console.log('user id', req.user.id)
