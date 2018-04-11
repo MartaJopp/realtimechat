@@ -66,42 +66,43 @@ module.exports = function (io) {
             console.log('user id', req.user.id)
             console.log('messageid', req.params.id)
             console.log('body', req.body)  
-            var voteUpdate;
-            if (req.body.smile) {
-                voteUpdate = 'smile'
-            }
-            if (req.body.thumbs_down) {
-                voteUpdate = 'thumbs_down'
-            }
-            if (req.body.thums_up){
-                voteUpdate = 'thumbs_up'
-            }
-            if (req.body.heart) {
-                voteUpdate = 'heart'
-            }
-            Message.findOne({ "_id": req.params.id }).exec(function (err, smileUpdate) {
+            
+           
+
+            Message.update({ "_id": req.params.id },
+           {$inc: {
+               "smile.votes": 1}},
+            
+            function (err, smileUpdate) {
                         if (err) {
                             console.log("ERROR!", err);
                             res.sendStatus(500);
                         } else {
-                console.log('smile', smileUpdate.smile)
+//                                 {$inc: {
+// smileUpdate: {
+//     smile: {
+//         votes: 1
+//     }
+// } }
+//                                 }
 
-smileUpdate.smile.votes = 1;
-console.log('vote Update', voteUpdate)
-console.log('smile update', smileUpdate)
+// console.log('vote Update', voteUpdate)
+// console.log('smile update', smileUpdate)
                     
-                                smileUpdate.save(function (err, smileUpdate) {
+                                // smileUpdate.save(function (err, smileUpdate) {
                         
                             // io.emit("smileVotes")
-                            //     }
+                                }
                           
                     
-                    res.sendStatus(204)
-                    console.log('success')
-                    io.emit("smileVotes", Message.smile)
-                        }
-                        )}
-    })
+                    // res.sendStatus(204)
+                    // console.log('success')
+                    // io.emit("smileVotes", Message.smile)
+                    //     }
+                    //     )
+                    // }
+                        }) //end find one
+                    
         } //end if authenticated
  
         else {
