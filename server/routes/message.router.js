@@ -66,12 +66,16 @@ module.exports = function (io) {
             console.log('user id', req.user.id)
             console.log('messageid', req.params.id)
             console.log('body', req.body)  
-            
-           
-
+            var user = req.user.id;
             Message.update({ "_id": req.params.id },
-           {$inc: {
-               "smile.votes": 1}},
+                ({
+                    $addToSet:
+                        { "smile.byWho": user }
+                },
+            {$inc: {
+               "smile.votes": 1}}
+                ),
+              
             
             function (err, smileUpdate) {
                         if (err) {
