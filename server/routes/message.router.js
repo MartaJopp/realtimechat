@@ -64,63 +64,49 @@ module.exports = function (io) {
         if (req.isAuthenticated) {
             console.log('user id', req.user.id)
             console.log('messageid', req.params.id)
-            console.log('body', req.body)  
+            console.log('body', req.body)
             var user = req.user.id;
             var id = req.params.id
-            Message.update({ "_id": id},
+            Message.update({ "_id": id },
                 ({
                     $addToSet:
                         { "smile.byWho": user }
                 }
-            ),
-            // Message.update({"_id": id},
-      
-         
-            // ({
-            //     $inc: 
-            //     { "smile.votes": 1}
-            // }
-            //     ),
-            
-            function (err, success) {
-                        if (success) {
-                          Message.update({"_id": id},
-                          ({
-                $inc: 
-                { "smile.votes": 1}
-            }
                 ),
-                              function (err, message) {
-                                  if (err) {
-                                      console.log("ERROR!", err);
-                                      res.sendStatus(500);
-                    
-                        } else {
-                                      // res.sendStatus(204)
-                                      console.log('success')
-                                      // io.emit("smileVotes", smileUpdate)
-                                
-                                  } // end else
-                        
+                function (err, success) {
+                    if (err) {
+                        console.log("ERROR!", err)
+                        res.sendStatus(500);
+                    }
+                    else {
+                        Message.update({ "_id": id },
+                            ({
+                                $inc:
+                                    { "smile.votes": 1 }
+                            }
+                            ),
+                            function (err, message) {
+                                if (err) {
+                                    console.log("ERROR!", err);
+                                    res.sendStatus(500);
 
+                                } else {
+                                    // res.sendStatus(204)
+                                    console.log('success')
+                                    // io.emit("smileVotes", smileUpdate)
 
-                    //     else {
-                    // // res.sendStatus(204)
-                    // // console.log('success')
-                    // // io.emit("smileVotes", smileUpdate)
-                    //         console.log("ERROR!", err);
-                    //         res.sendStatus(500);
-                    //     } // end else
-                })//end find one
-            }              
-            })//end first message update  
-                   
+                                } // end else
+                           
+                            })//end find one
+                    }
+                })//end first message update  
+
         } //end if authenticated
-    
+
         else {
             console.log('User is not authenticated')
         }//end not authenticated
-    
+
     })//end update votes
 
 
