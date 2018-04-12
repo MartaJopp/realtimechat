@@ -60,10 +60,6 @@ module.exports = function (io) {
         }
     }); // END GET Route
 
-    //update votes need to do logic for type of vote and also 
-    //if has already voted they can't --> should also be
-    //able to do that on the get messages and disable a button
-    //if user has already voted for that 
     router.put('/:id', function (req, res) {
         if (req.isAuthenticated) {
             console.log('user id', req.user.id)
@@ -85,31 +81,14 @@ module.exports = function (io) {
                             console.log("ERROR!", err);
                             res.sendStatus(500);
                         } else {
-//                                 {$inc: {
-// smileUpdate: {
-//     smile: {
-//         votes: 1
-//     }
-// } }
-//                                 }
-
-// console.log('vote Update', voteUpdate)
-// console.log('smile update', smileUpdate)
                     
-                                // smileUpdate.save(function (err, smileUpdate) {
-                        
-                            // io.emit("smileVotes")
-                                }
-                          
-                    
-                    // res.sendStatus(204)
-                    // console.log('success')
-                    // io.emit("smileVotes", Message.smile)
-                    //     }
-                    //     )
-                    // }
-                        }) //end find one
-                    
+                    res.sendStatus(204)
+                    console.log('success')
+                    io.emit("smileVotes", smileUpdate)
+                   
+                        }
+              }) //end find one
+                  
         } //end if authenticated
  
         else {
