@@ -62,10 +62,10 @@ module.exports = function (io) {
 
     router.put('/:id', function (req, res) {
         if (req.isAuthenticated) {
-            console.log('user id', req.user.id)
+            console.log('username', req.user.username)
             console.log('messageid', req.params.id)
             console.log('body', req.body)
-            var user = req.user.id;
+            var user = req.user.username;
             var id = req.params.id
             Message.update({ "_id": id },
                 ({
