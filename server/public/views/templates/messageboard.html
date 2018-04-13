@@ -44,8 +44,16 @@
             <i ng-click="mb.voteThumbsDown(message._id)" class="fa fa-thumbs-o-down fa-fw w3-margin-right w3-text-theme vote"></i>
             <i ng-hide="mb.heartFilled" ng-click="mb.voteHeart(message._id)" class="fa fa-heart-o fa-fw w3-margin-right w3-text-theme vote"></i>
             <i ng-show="mb.heartFilled" class="fa fa-heart-o fa-fw w3-margin-right w3-text-theme"></i>
-
           </p>
+          <div ng-repeat="smile in message track by $index">
+
+            {{smile.votes}}
+<div ng-repeat = "each in smile.byWho track by $index">
+
+{{each}}
+
+     </div>
+            </div>
         </div>
 
         <!-- <footer class="w3-container w3-theme-d3 w3-padding-16"> -->
