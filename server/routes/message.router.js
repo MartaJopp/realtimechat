@@ -91,9 +91,9 @@ module.exports = function (io) {
                                     res.sendStatus(500);
 
                                 } else {
-                                    // res.sendStatus(204)
+                                    res.sendStatus(204)
                                     console.log('success')
-                                    // io.emit("smileVotes", smileUpdate)
+                                    io.emit("smileVotes", message)
 
                                 } // end else
                            
