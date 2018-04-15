@@ -56,7 +56,7 @@ myApp.controller('UserController', ['$scope', '$mdDialog', 'UserService', functi
     })
   }
 
-  // vm.getAllUsers()
+  vm.getAllUsers()
 
   // displays user profile picture as popup
   vm.showUserPicture = function (event, picture) {
