@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const SmileSchema = new Schema({
-    votes: { type: Number, default: 0 },
-    byWho: { type: Array }
-})
+// const SmileSchema = new Schema({
+//     votes: { type: Number, default: 0 },
+//     byWho: { type: Array }
+// })
 
-var Smile = mongoose.model('Smiles', SmileSchema);
+// var Smile = mongoose.model('Smiles', SmileSchema);
 
 
 //w/ SmileSchema
@@ -18,9 +18,18 @@ const MessageSchema = new Schema({
     posted_by: { type: String },
     image: { type: String },
     messagePicture: { type: String },
-    heart: { type: Number, default: 0 },
-    thumbs_up: { type: Number, default: 0 },
-    thumbs_down: { type: Number, default: 0 },
+    heart: {
+        votes: { type: Number, default: 0 },
+        byWho: { type: Array }
+    },
+    thumbs_up: {
+        votes: { type: Number, default: 0 },
+        byWho: { type: Array }
+    },
+    thumbs_down: { 
+        votes: {type: Number, default: 0 },
+        byWho: {type: Array}
+    },
     smile: {
         votes: {type: Number, default: 0},
         byWho: {type: Array}
