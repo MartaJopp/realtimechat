@@ -93,7 +93,7 @@ module.exports = function (io) {
                                 } else {
                                     res.sendStatus(204)
                                     console.log('success')
-                                    io.emit("smileVotes", message)
+                                    io.emit("smileVotes", message) //sends back that a change occurred
 
                                 } // end else
                            
