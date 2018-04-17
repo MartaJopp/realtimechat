@@ -79,7 +79,8 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
     vm.smileFilled = true;
     console.log(vm.smileFilled)
     console.log('id')
-    MessageService.voteSmile(id)
+    var smile = 'smile';
+    MessageService.voteSmile(id, smile)
 
   } //end voteSmile
 

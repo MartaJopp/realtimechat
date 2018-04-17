@@ -67,7 +67,8 @@ module.exports = function (io) {
             console.log('body', req.body)
             var user = req.user.username;
             var id = req.params.id
-            var voteType = req.body.smile
+            var voteType = req.body.voteType
+            if (voteType == 'smile') {
             Message.update({ "_id": id },
                 ({
                     $addToSet:
@@ -101,7 +102,7 @@ module.exports = function (io) {
                             })//end find one
                     }
                 })//end first message update  
-
+            }
         } //end if authenticated
 
         else {
