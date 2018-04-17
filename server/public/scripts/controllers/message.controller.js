@@ -11,7 +11,6 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
   vm.smileFilled = false;
   vm.thumbsUpFilled = false;
   vm.thumbsDownFilled = false;
-  vm.smiles = 0;
 
   //post new message from input
   vm.newMessage = function (message) {
@@ -80,7 +79,7 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
     vm.smileFilled = true;
     console.log(vm.smileFilled)
     console.log('id')
-    MessageService.voteSmile(id, vm.smiles)
+    MessageService.voteSmile(id)
 
   } //end voteSmile
 

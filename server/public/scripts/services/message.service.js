@@ -12,7 +12,6 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
     }
 
     self.addSmile = {
-        smile: '',
     }
 
    self.getSpecificMessage = {
@@ -59,8 +58,7 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
     self.voteSmile = function (id, smileNumber) {
         console.log(smileNumber)
         console.log('vote smile in message service')
-        self.addSmile.smile = smileNumber + 1;
-        console.log(self.addSmile.smile);
+        console.log('addSmile', self.addSmile);
         console.log(id);
         $http.put('/message/' + id, self.addSmile ).then(function (response){
             console.log(response)

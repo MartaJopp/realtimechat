@@ -67,6 +67,7 @@ module.exports = function (io) {
             console.log('body', req.body)
             var user = req.user.username;
             var id = req.params.id
+            var voteType = req.body.smile
             Message.update({ "_id": id },
                 ({
                     $addToSet:
