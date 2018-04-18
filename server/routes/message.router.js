@@ -69,39 +69,40 @@ module.exports = function (io) {
             var id = req.params.id
             var voteType = req.body.voteType
             if (voteType == 'smile') {
-            Message.update({ "_id": id },
-                ({
-                    $addToSet:
-                        { "smile.byWho": user }
-                }
-                ),
-                function (err, success) {
-                    if (err) {
-                        console.log("ERROR!", err)
-                        res.sendStatus(500);
-                    }
-                    else {
-                        Message.update({ "_id": id },
-                            ({
-                                $inc:
-                                    { "smile.votes": 1 }
-                            }
-                            ),
-                            function (err, message) {
-                                if (err) {
-                                    console.log("ERROR!", err);
-                                    res.sendStatus(500);
+                addSmile(id, user)
+            // Message.update({ "_id": id },
+            //     ({
+            //         $addToSet:
+            //             { "smile.byWho": user }
+            //     }
+            //     ),
+            //     function (err, success) {
+            //         if (err) {
+            //             console.log("ERROR!", err)
+            //             res.sendStatus(500);
+            //         }
+            //         else {
+            //             Message.update({ "_id": id },
+            //                 ({
+            //                     $inc:
+            //                         { "smile.votes": 1 }
+            //                 }
+            //                 ),
+            //                 function (err, message) {
+            //                     if (err) {
+            //                         console.log("ERROR!", err);
+            //                         res.sendStatus(500);
 
-                                } else {
-                                    res.sendStatus(204)
-                                    console.log('success')
-                                    io.emit("smileVotes", message) //sends back that a change occurred
+            //                     } else {
+            //                         res.sendStatus(204)
+            //                         console.log('success')
+            //                         io.emit("smileVotes", message) //sends back that a change occurred
 
-                                } // end else
+            //                     } // end else
                            
-                            })//end find one
-                    }
-                })//end first message update  
+            //                 })//end find one
+            //         }
+            //     })//end first message update  
             }
         } //end if authenticated
 
@@ -110,6 +111,44 @@ module.exports = function (io) {
         }//end not authenticated
 
     })//end update votes
+
+function addSmile(id, user) {
+    Message.update({ "_id": id },
+        ({
+            $addToSet:
+                { "smile.byWho": user }
+        }
+        ),
+        function (err, success) {
+            if (err) {
+                console.log("ERROR!", err)
+                // res.sendStatus(500);
+            }
+            else {
+                Message.update({ "_id": id },
+                    ({
+                        $inc:
+                            { "smile.votes": 1 }
+                    }
+                    ),
+                    function (err, message) {
+                        if (err) {
+                            console.log("ERROR!", err);
+                            // res.sendStatus(500);
+
+                        } else {
+                            // res.sendStatus(204)
+                            console.log('success')
+                            io.emit("smileVotes", message) //sends back that a change occurred
+
+                        } // end else
+
+                    })//end find one
+            }
+        })//end first message update  
+}
+
+
 
 
     return router;
