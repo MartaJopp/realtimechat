@@ -57,21 +57,6 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
 
 //functions to vote counters - already added to message schema
 //need to complete put route to server
-  vm.voteHeart = function (id) {
-    
-    console.log('Heart Clicked')
-    MessageService.voteSmile().then(function (response){
-
-    })
-  } //end voteHeart
-
-  vm.voteThumbsUp = function (id) {
-    console.log('Thumbs Up Clicked')
-  } //end Thumbsup
-
-  vm.voteThumbsDown = function (id) {
-    console.log('Thumbs Down Clicked')
-  } //end Thumbsdown
 
   vm.voteSmile = function (id) {
     console.log('Smile Clicked')
@@ -80,8 +65,23 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
     console.log(vm.smileFilled)
     console.log('id')
     var smile = 'smile';
-    MessageService.voteSmile(id, smile)
-
+    MessageService.voteAdded(id, smile)
   } //end voteSmile
+
+  vm.voteHeart = function (id) {
+    console.log('Heart Clicked')
+    var heart = 'heart';
+    MessageService.voteAdded(id, heart)
+  }
+
+  vm.voteThumbsUp = function (id){
+    var thumbsUp = 'thumbsUp';
+    MessageService.voteAdded(id, thumbsUp)
+  }
+
+  vm.voteThumbsDown = function (id) {
+    var thumbsDown = 'thumbsDown';
+    MessageService.voteAdded(id, thumbsDown)
+  }
 
 }]);

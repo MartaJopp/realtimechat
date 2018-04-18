@@ -55,7 +55,7 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
     } // end getMessages function
 
     // add +1 to smile 
-    self.voteSmile = function (id, voteType) {
+    self.voteAdded = function (id, voteType) {
         console.log('voting', voteType)
         self.addVote.voteType = voteType;
         console.log('vote smile in message service')

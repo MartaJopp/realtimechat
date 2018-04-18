@@ -70,6 +70,16 @@ module.exports = function (io) {
             var voteType = req.body.voteType
             if (voteType == 'smile') {
                 addSmile(req, res, id, user)
+            }
+            if (voteType == 'thumbsUp') {
+                addThumbsUp(req, res, id, user)
+            }
+            if (voteType == 'thumbsDown'){
+                addThumbsDown(req, res, id, user)
+            }
+            if (voteType == 'heart') {
+                addHeart(req, res, id, user)
+            }
             // Message.update({ "_id": id },
             //     ({
             //         $addToSet:
@@ -99,11 +109,11 @@ module.exports = function (io) {
             //                         io.emit("smileVotes", message) //sends back that a change occurred
 
             //                     } // end else
-                           
+
             //                 })//end find one
             //         }
             //     })//end first message update  
-            }
+
         } //end if authenticated
 
         else {
@@ -112,42 +122,144 @@ module.exports = function (io) {
 
     })//end update votes
 
-//adds vote    
-function addSmile(req, res, id, user) {
-    Message.update({ "_id": id },
-        ({
-            $addToSet:
-                { "smile.byWho": user }
-        }
-        ),
-        function (err, success) {
-            if (err) {
-                console.log("ERROR!", err)
-                res.sendStatus(500);
+    //adds smile vote    
+    function addSmile(req, res, id, user) {
+        Message.update({ "_id": id },
+            ({
+                $addToSet:
+                    { "smile.byWho": user }
             }
-            else {
-                Message.update({ "_id": id },
-                    ({
-                        $inc:
-                            { "smile.votes": 1 }
-                    }
-                    ),
-                    function (err, message) {
-                        if (err) {
-                            console.log("ERROR!", err);
-                            res.sendStatus(500);
-                        } else {
-                            res.sendStatus(204)
-                            console.log('success')
-                            io.emit("smileVotes", message) //sends back that a change occurred
-                        } // end else
-                    })//end find one
+            ),
+            function (err, success) {
+                if (err) {
+                    console.log("ERROR!", err)
+                    res.sendStatus(500);
+                }
+                else {
+                    Message.update({ "_id": id },
+                        ({
+                            $inc:
+                                { "smile.votes": 1 }
+                        }
+                        ),
+                        function (err, message) {
+                            if (err) {
+                                console.log("ERROR!", err);
+                                res.sendStatus(500);
+                            } else {
+                                res.sendStatus(204)
+                                console.log('success')
+                                io.emit("smileVotes", message) //sends back that a change occurred
+                            } // end else
+                        })//end find one
+                }
+            })//end first message update  
+    }
+    //end addSmile function
+
+    //addThumbsUp function
+    function addThumbsUp(req, res, id, user) {
+        Message.update({ "_id": id },
+            ({
+                $addToSet:
+                    { "thumbs_up.byWho": user }
             }
-        })//end first message update  
-}
+            ),
+            function (err, success) {
+                if (err) {
+                    console.log("ERROR!", err)
+                    res.sendStatus(500);
+                }
+                else {
+                    Message.update({ "_id": id },
+                        ({
+                            $inc:
+                                { "thumbs_up.votes": 1 }
+                        }
+                        ),
+                        function (err, message) {
+                            if (err) {
+                                console.log("ERROR!", err);
+                                res.sendStatus(500);
+                            } else {
+                                res.sendStatus(204)
+                                console.log('success')
+                                io.emit("smileVotes", message) //sends back that a change occurred
+                            } // end else
+                        })//end find one
+                }
+            })//end first message update  
+    }
+    //end add thumbsUp function
 
+    //ThumbsDown adds one vote
+    function addThumbsDown(req, res, id, user) {
+        Message.update({ "_id": id },
+            ({
+                $addToSet:
+                    { "thumbs_down.byWho": user }
+            }
+            ),
+            function (err, success) {
+                if (err) {
+                    console.log("ERROR!", err)
+                    res.sendStatus(500);
+                }
+                else {
+                    Message.update({ "_id": id },
+                        ({
+                            $inc:
+                                { "thumbs_down.votes": 1 }
+                        }
+                        ),
+                        function (err, message) {
+                            if (err) {
+                                console.log("ERROR!", err);
+                                res.sendStatus(500);
+                            } else {
+                                res.sendStatus(204)
+                                console.log('success')
+                                io.emit("smileVotes", message) //sends back that a change occurred
+                            } // end else
+                        })//end find one
+                }
+            })//end first message update  
+    }
 
-
+    //add heart vote function
+    function addHeart(req, res, id, user) {
+        Message.update({ "_id": id },
+            ({
+                $addToSet:
+                    { "heart.byWho": user }
+            }
+            ),
+            function (err, success) {
+                if (err) {
+                    console.log("ERROR!", err)
+                    res.sendStatus(500);
+                }
+                else {
+                    Message.update({ "_id": id },
+                        ({
+                            $inc:
+                                { "heart.votes": 1 }
+                        }
+                        ),
+                        function (err, message) {
+                            if (err) {
+                                console.log("ERROR!", err);
+                                res.sendStatus(500);
+                            } else {
+                                res.sendStatus(204)
+                                console.log('success')
+                                io.emit("smileVotes", message) //sends back that a change occurred
+                            } // end else
+                        })//end find one
+                }
+            })//end first message update  
+    }
+    //end add heart function
 
     return router;
 }
