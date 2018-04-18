@@ -55,15 +55,9 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
     vm.showPicture = false;
   }
 
-//functions to vote counters - already added to message schema
-//need to complete put route to server
-
   vm.voteSmile = function (id) {
     console.log('Smile Clicked')
-    console.log(vm.smileFilled)
     vm.smileFilled = true;
-    console.log(vm.smileFilled)
-    console.log('id')
     var smile = 'smile';
     MessageService.voteAdded(id, smile)
   } //end voteSmile

@@ -74,52 +74,16 @@ module.exports = function (io) {
             if (voteType == 'thumbsUp') {
                 addThumbsUp(req, res, id, user)
             }
-            if (voteType == 'thumbsDown'){
+            if (voteType == 'thumbsDown') {
                 addThumbsDown(req, res, id, user)
             }
             if (voteType == 'heart') {
                 addHeart(req, res, id, user)
             }
-            // Message.update({ "_id": id },
-            //     ({
-            //         $addToSet:
-            //             { "smile.byWho": user }
-            //     }
-            //     ),
-            //     function (err, success) {
-            //         if (err) {
-            //             console.log("ERROR!", err)
-            //             res.sendStatus(500);
-            //         }
-            //         else {
-            //             Message.update({ "_id": id },
-            //                 ({
-            //                     $inc:
-            //                         { "smile.votes": 1 }
-            //                 }
-            //                 ),
-            //                 function (err, message) {
-            //                     if (err) {
-            //                         console.log("ERROR!", err);
-            //                         res.sendStatus(500);
-
-            //                     } else {
-            //                         res.sendStatus(204)
-            //                         console.log('success')
-            //                         io.emit("smileVotes", message) //sends back that a change occurred
-
-            //                     } // end else
-
-            //                 })//end find one
-            //         }
-            //     })//end first message update  
-
         } //end if authenticated
-
         else {
             console.log('User is not authenticated')
         }//end not authenticated
-
     })//end update votes
 
     //adds smile vote    
