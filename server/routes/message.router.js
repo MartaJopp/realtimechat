@@ -60,11 +60,9 @@ module.exports = function (io) {
         }
     }); // END GET Route
 
+    //add to votes
     router.put('/:id', function (req, res) {
         if (req.isAuthenticated) {
-            console.log('username', req.user.username)
-            console.log('messageid', req.params.id)
-            console.log('body', req.body)
             var user = req.user.username;
             var id = req.params.id
             var voteType = req.body.voteType
