@@ -69,7 +69,7 @@ module.exports = function (io) {
             var id = req.params.id
             var voteType = req.body.voteType
             if (voteType == 'smile') {
-                addSmile(id, user)
+                addSmile(req, res, id, user)
             // Message.update({ "_id": id },
             //     ({
             //         $addToSet:
@@ -112,7 +112,8 @@ module.exports = function (io) {
 
     })//end update votes
 
-function addSmile(id, user) {
+//adds vote    
+function addSmile(req, res, id, user) {
     Message.update({ "_id": id },
         ({
             $addToSet:
@@ -122,7 +123,7 @@ function addSmile(id, user) {
         function (err, success) {
             if (err) {
                 console.log("ERROR!", err)
-                // res.sendStatus(500);
+                res.sendStatus(500);
             }
             else {
                 Message.update({ "_id": id },
@@ -134,15 +135,12 @@ function addSmile(id, user) {
                     function (err, message) {
                         if (err) {
                             console.log("ERROR!", err);
-                            // res.sendStatus(500);
-
+                            res.sendStatus(500);
                         } else {
-                            // res.sendStatus(204)
+                            res.sendStatus(204)
                             console.log('success')
                             io.emit("smileVotes", message) //sends back that a change occurred
-
                         } // end else
-
                     })//end find one
             }
         })//end first message update  
