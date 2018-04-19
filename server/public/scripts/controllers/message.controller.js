@@ -11,6 +11,8 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
   vm.smileFilled = false;
   vm.thumbsUpFilled = false;
   vm.thumbsDownFilled = false;
+  vm.popoverIsVisible = false;
+
 
   //post new message from input
   vm.newMessage = function (message) {
@@ -77,5 +79,13 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
     var thumbsDown = 'thumbsDown';
     MessageService.voteAdded(id, thumbsDown)
   }
+
+  vm.showNames = function () {
+    vm.popoverIsVisible = true;
+  };
+
+  vm.hideNames = function () {
+    vm.popoverIsVisible = false;
+  };
 
 }]);
