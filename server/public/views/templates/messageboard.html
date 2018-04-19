@@ -38,10 +38,13 @@
           <img src="{{message.messagePicture}}" id="messagePictures" style="width:200px; height:auto">
           <p>{{message.message}}</p>
           <p>
+            <!-- <div ng-repeat="smile in message track by $index">{{smile.votes}}</div>
+            {{message.heart}} -->
             <div ng-mouseover="mb.showNames()" ng-mouseleave="mb.hideNames()">
-            <i ng-hide="mb.smileFilled" ng-click="mb.voteSmile(message._id)" class="fa fa-smile-o fa-fw w3-margin-right w3-text-theme vote">{{message.smile}}</i>
-            <i ng-show="mb.smileFilled" class="fa fa-star fa-fw w3-margin-right w3-text-theme">{{message.smile}}</i>
+              <i ng-hide="mb.smileFilled" ng-click="mb.voteSmile(message._id)" class="fa fa-smile-o fa-fw w3-margin-right w3-text-theme vote"></i>
+              <i ng-show="mb.smileFilled" class="fa fa-star fa-fw w3-margin-right w3-text-theme">{{message.smile}}</i>
             </div>
+
             <i ng-click="mb.voteThumbsUp(message._id)" class="fa fa-thumbs-o-up fa-fw w3-margin-right w3-text-theme vote"></i>
             <i ng-click="mb.voteThumbsDown(message._id)" class="fa fa-thumbs-o-down fa-fw w3-margin-right w3-text-theme vote"></i>
             <i ng-hide="mb.heartFilled" ng-click="mb.voteHeart(message._id)" class="fa fa-heart-o fa-fw w3-margin-right w3-text-theme vote"></i>
@@ -49,44 +52,44 @@
           </p>
           <div ng-repeat="smile in message track by $index">
 
-            {{smile.votes}}
-<div ng-repeat = "each in smile.byWho track by $index">
-<div ng-show = "mb.popoverIsVisible">
-{{each}}
-</div>
-     </div>
+          {{smile.votes}}
+          <div ng-repeat="each in smile.byWho track by $index">
+            <div ng-show="mb.popoverIsVisible">
+              {{each}}
             </div>
+          </div>
         </div>
-
-        <!-- <footer class="w3-container w3-theme-d3 w3-padding-16"> -->
-        <div class="messageBoardFooter">
-          <footer class="messageFooter w3-theme-d2">
-            <div class="w3-row">
-              <div class="w3-col m10">
-                <md-input-container class="md-block messageBlock">
-                  <!-- <label>Message</label> -->
-                  <textarea id="messageText" ng-model="mb.sendMessage.message" placeholder="Enter message here." md-maxlength="300" rows="2"
-                    md-select-on-focus>
-                  </textarea>
-                  <img ng-show="mb.showPicture" src="{{mb.sendMessage.messagePicture}}" class="w3-circle" style="height:106px;width:106px"
-                    alt="linked picture">
-
-                </md-input-container>
-              </div>
-              <div class="w3-col m1 buttonFooter">
-
-                <md-button ng-click="mb.newMessage(mb.sendMessage)" class="md-raised">Send</md-button>
-                <md-button ng-hide="mb.showPicture" ng-click="mb.messagePhoto()" ng-model="mb.sendMessage.messagePicture" class="md-raised">Add Photo</md-button>
-                <md-button ng-show="mb.showPicture" ng-click="mb.cancelAddPhoto()" class="md-raised">Cancel Add Photo</md-button>
-
-              </div>
-            </div>
-          </footer>
-
-          <footer class="w3-container w3-theme-d5">
-            <p>Real Time Chat
-            </p>
-          </footer>
-        </div>
-
       </div>
+
+      <!-- <footer class="w3-container w3-theme-d3 w3-padding-16"> -->
+      <div class="messageBoardFooter">
+        <footer class="messageFooter w3-theme-d2">
+          <div class="w3-row">
+            <div class="w3-col m10">
+              <md-input-container class="md-block messageBlock">
+                <!-- <label>Message</label> -->
+                <textarea id="messageText" ng-model="mb.sendMessage.message" placeholder="Enter message here." md-maxlength="300" rows="2"
+                  md-select-on-focus>
+                  </textarea>
+                <img ng-show="mb.showPicture" src="{{mb.sendMessage.messagePicture}}" class="w3-circle" style="height:106px;width:106px"
+                  alt="linked picture">
+
+              </md-input-container>
+            </div>
+            <div class="w3-col m1 buttonFooter">
+
+              <md-button ng-click="mb.newMessage(mb.sendMessage)" class="md-raised">Send</md-button>
+              <md-button ng-hide="mb.showPicture" ng-click="mb.messagePhoto()" ng-model="mb.sendMessage.messagePicture" class="md-raised">Add Photo</md-button>
+              <md-button ng-show="mb.showPicture" ng-click="mb.cancelAddPhoto()" class="md-raised">Cancel Add Photo</md-button>
+
+            </div>
+          </div>
+        </footer>
+
+        <footer class="w3-container w3-theme-d5">
+          <p>Real Time Chat
+          </p>
+        </footer>
+      </div>
+
+    </div>
