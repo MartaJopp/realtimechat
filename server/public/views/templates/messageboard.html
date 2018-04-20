@@ -38,12 +38,9 @@
           <img src="{{message.messagePicture}}" id="messagePictures" style="width:200px; height:auto">
           <p>{{message.message}}</p>
           <p>
-            <!-- <div ng-repeat="smile in message track by $index">{{smile.votes}}</div>
-            {{message.heart}} -->
             <i ng-hide="mb.smileFilled" ng-click="mb.voteSmile(message._id)" ng-mouseover="mb.showNames()" ng-mouseleave="mb.hideNames()"
               class="fa fa-smile-o fa-fw w3-margin-right w3-text-theme vote">{{message.smile.votes}}</i>
             <i ng-show="mb.smileFilled" ng-mouseover="mb.showNames()" ng-mouseleave="mb.hideNames()" class="fa fa-star fa-fw w3-margin-right w3-text-theme">{{message.smile.votes}}</i>
-
             <i ng-hide="mb.thumbsUpFilled" ng-click="mb.voteThumbsUp(message._id)" class="fa fa-thumbs-o-up fa-fw w3-margin-right w3-text-theme vote"
               ng-mouseover="mb.showThumbsUpNames()" ng-mouseleave="mb.hideThumbsUpNames()">{{message.thumbs_up.votes}}</i>
             <i ng-show="mb.thumbsUpFilled" ng-mouseover="mb.showThumbsUpNames()" ng-mouseleave="mb.hideThumbsUpNames()" class="fa fa-thumbs-up fa-fw w3-margin-right w3-text-theme vote">{{message.thumbs_up.votes}}</i>
@@ -58,18 +55,25 @@
             <i ng-show="mb.heartFilled" ng-mouseover="mb.showHeartNames()" ng-mouseleave="mb.hideHeartNames()" class="fa fa-heart fa-fw w3-margin-right w3-text-theme">{{message.heart.votes}}</i>
           </p>
           <div ng-show="mb.popoverIsVisible">
-            {{message.smile.byWho}}
+            <ul ng-repeat="smname in message.smile.byWho">
+              {{smname}}
+            </ul>
           </div>
           <div ng-show="mb.thumbsUpNamesVisible">
-            {{message.thumbs_up.byWho}}
+            <ul ng-repeat="tuname in message.thumbs_up.byWho">
+              {{tuname}}
+            </ul>
           </div>
           <div ng-show="mb.thumbsDownNamesVisible">
-            {{message.thumbs_down.byWho}}
+            <ul ng-repeat="tdname in message.thumbs_down.byWho">
+              {{tdname}}
+            </ul>
           </div>
           <div ng-if="mb.heartNamesVisible">
-            {{message.heart.byWho}}
+            <ul ng-repeat="hname in message.heart.byWho">
+              {{hname}}
+            </ul>
           </div>
-
 
         </div>
       </div>
