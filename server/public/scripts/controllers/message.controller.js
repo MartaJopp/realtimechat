@@ -11,7 +11,7 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
   vm.smileFilled = false;
   vm.thumbsUpFilled = false;
   vm.thumbsDownFilled = false;
-  vm.popoverIsVisible = false;
+  // vm.popoverIsVisible = false;
 
 
   //post new message from input
@@ -72,11 +72,13 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
 
   vm.voteThumbsUp = function (id){
     var thumbsUp = 'thumbsUp';
+    vm.thumbsUpFilled = true;
     MessageService.voteAdded(id, thumbsUp)
   }
 
   vm.voteThumbsDown = function (id) {
     var thumbsDown = 'thumbsDown';
+    vm.thumbsDownFilled = true;
     MessageService.voteAdded(id, thumbsDown)
   }
 
@@ -86,6 +88,22 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
 
   vm.hideNames = function () {
     vm.popoverIsVisible = false;
+  };
+
+  vm.showThumbsUpNames = function () {
+    vm.thumbsUpNamesVisible = true;
+  };
+
+  vm.hideThumbsUpNames = function () {
+    vm.thumbsUpNamesVisible = false;
+  };
+
+  vm.showThumbsDownNames = function () {
+    vm.thumbsDownNamesVisible = true;
+  };
+
+  vm.hideThumbsDownNames = function () {
+    vm.thumbsDownNamesVisible = false;
   };
 
 }]);
