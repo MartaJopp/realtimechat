@@ -42,21 +42,20 @@
             {{message.heart}} -->
             <i ng-hide="mb.smileFilled" ng-click="mb.voteSmile(message._id)" ng-mouseover="mb.showNames()" ng-mouseleave="mb.hideNames()"
               class="fa fa-smile-o fa-fw w3-margin-right w3-text-theme vote">{{message.smile.votes}}</i>
-            <i ng-show="mb.smileFilled" ng-mouseover="mb.showNames()" ng-mouseleave="mb.hideNames()" 
-            class="fa fa-star fa-fw w3-margin-right w3-text-theme">{{message.smile.votes}}</i>
+            <i ng-show="mb.smileFilled" ng-mouseover="mb.showNames()" ng-mouseleave="mb.hideNames()" class="fa fa-star fa-fw w3-margin-right w3-text-theme">{{message.smile.votes}}</i>
 
-            <i ng-hide="mb.thumbsUpFilled" ng-click="mb.voteThumbsUp(message._id)" class="fa fa-thumbs-o-up fa-fw w3-margin-right w3-text-theme vote" 
-            ng-mouseover="mb.showThumbsUpNames()" ng-mouseleave="mb.hideThumbsUpNames()">{{message.thumbs_up.votes}}</i>
-            <i ng-show="mb.thumbsUpFilled" ng-mouseover="mb.showThumbsUpNames()" ng-mouseleave="mb.hideThumbsUpNames()" 
-            class="fa fa-thumbs-up fa-fw w3-margin-right w3-text-theme vote">{{message.thumbs_up.votes}}</i>
+            <i ng-hide="mb.thumbsUpFilled" ng-click="mb.voteThumbsUp(message._id)" class="fa fa-thumbs-o-up fa-fw w3-margin-right w3-text-theme vote"
+              ng-mouseover="mb.showThumbsUpNames()" ng-mouseleave="mb.hideThumbsUpNames()">{{message.thumbs_up.votes}}</i>
+            <i ng-show="mb.thumbsUpFilled" ng-mouseover="mb.showThumbsUpNames()" ng-mouseleave="mb.hideThumbsUpNames()" class="fa fa-thumbs-up fa-fw w3-margin-right w3-text-theme vote">{{message.thumbs_up.votes}}</i>
 
             <i ng-hide="mb.thumbsDownFilled" ng-click="mb.voteThumbsDown(message._id)" class="fa fa-thumbs-o-down fa-fw w3-margin-right w3-text-theme vote"
-               ng-mouseover="mb.showThumbsDownNames()" ng-mouseleave="mb.hideThumbsDownNames()">{{message.thumbs_down.votes}}</i>
-            <i ng-show="mb.thumbsDownFilled" class="fa fa-thumbs-down fa-fw w3-margin-right w3-text-theme vote"
               ng-mouseover="mb.showThumbsDownNames()" ng-mouseleave="mb.hideThumbsDownNames()">{{message.thumbs_down.votes}}</i>
-            
-               <i ng-hide="mb.heartFilled" ng-click="mb.voteHeart(message._id)" class="fa fa-heart-o fa-fw w3-margin-right w3-text-theme vote"></i>
-            <i ng-show="mb.heartFilled" class="fa fa-heart-o fa-fw w3-margin-right w3-text-theme"></i>
+            <i ng-show="mb.thumbsDownFilled" class="fa fa-thumbs-down fa-fw w3-margin-right w3-text-theme vote" ng-mouseover="mb.showThumbsDownNames()"
+              ng-mouseleave="mb.hideThumbsDownNames()">{{message.thumbs_down.votes}}</i>
+
+            <i ng-mouseover="mb.showHeartNames()" ng-mouseleave="mb.hideHeartNames()" ng-hide="mb.heartFilled" ng-click="mb.voteHeart(message._id)"
+              class="fa fa-heart-o fa-fw w3-margin-right w3-text-theme vote">{{message.heart.votes}}</i>
+            <i ng-show="mb.heartFilled" ng-mouseover="mb.showHeartNames()" ng-mouseleave="mb.hideHeartNames()" class="fa fa-heart fa-fw w3-margin-right w3-text-theme">{{message.heart.votes}}</i>
           </p>
           <div ng-show="mb.popoverIsVisible">
             {{message.smile.byWho}}
@@ -66,6 +65,9 @@
           </div>
           <div ng-show="mb.thumbsDownNamesVisible">
             {{message.thumbs_down.byWho}}
+          </div>
+          <div ng-if="mb.heartNamesVisible">
+            {{message.heart.byWho}}
           </div>
 
 

@@ -65,12 +65,12 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
   } //end voteSmile
 
   vm.voteHeart = function (id) {
-    console.log('Heart Clicked')
+    vm.heartFilled = true;
     var heart = 'heart';
     MessageService.voteAdded(id, heart)
   }
 
-  vm.voteThumbsUp = function (id){
+  vm.voteThumbsUp = function (id) {
     var thumbsUp = 'thumbsUp';
     vm.thumbsUpFilled = true;
     MessageService.voteAdded(id, thumbsUp)
@@ -105,5 +105,13 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
   vm.hideThumbsDownNames = function () {
     vm.thumbsDownNamesVisible = false;
   };
+
+  vm.showHeartNames = function () {
+    vm.heartNamesVisible = true;
+  }
+
+  vm.hideHeartNames = function () {
+    vm.heartNamesVisible = false;
+  }
 
 }]);
