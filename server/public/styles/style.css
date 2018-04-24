@@ -194,3 +194,17 @@ background-color:#607d8b}
 .vote {
   cursor: pointer;
 }
+
+.showBox {
+     display:none;
+     position: absolute;
+     top: 30px; 
+     left: 10px;
+    background: orange;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+a:hover + .showBox {
+     display:block;   
+}
