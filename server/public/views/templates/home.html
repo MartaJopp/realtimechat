@@ -1,11 +1,8 @@
 <div class="container">
-<div class="w3-card-4">
-
-    <header class="w3-container w3-blue">
-    <h1 class="lead">Login</h1>    
-</header>
-<div class="w3-container">
-
+    <div class="login">
+    <header class="lead w3-container">
+        <h1>Login</h1>
+    </header>
     <h1 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
         <form ng-submit="vm.login()">
             <div>
@@ -21,10 +18,6 @@
                 <a href="#!register">Register</a>
             </div>
         </form>
-    </div>
-        <footer class="w3-container w3-blue">
-            <h5>Footer</h5>
-        </footer>
         </div>
         <footer class="w3-container w3-theme-d5 bottomFooter">
             <p>Real Time Chat
