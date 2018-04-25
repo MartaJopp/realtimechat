@@ -11,12 +11,13 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
         data: []
     }
 
-    self.addVote = { voteType: ''
+    self.addVote = {
+        voteType: ''
     }
 
-   self.getSpecificMessage = {
-       id: ''
-   }
+    self.getSpecificMessage = {
+        id: ''
+    }
 
     //receives messages realtime
     var socket = io()
@@ -25,7 +26,7 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
         self.getMessages()
     })
 
-    socket.on('smileVotes', function (data){
+    socket.on('smileVotes', function (data) {
         console.log('vote received', data)
         self.getMessages()
     })
@@ -49,6 +50,9 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
         $http.get('/message/').then(function (response) {
             console.log(response.data)
             self.messages.data = response.data;
+            //TO DO:
+            //if user is in smile, heart, thumbs, etc .byWho filled field
+            //is true
         }).catch(function (err) {
             console.log('Error getting messages');
         })
@@ -61,9 +65,9 @@ myApp.service('MessageService', ['$http', '$location', function ($http, $locatio
         console.log('vote smile in message service')
         console.log('addSmile', self.addSmile);
         console.log(id);
-        $http.put('/message/' + id, self.addVote ).then(function (response){
+        $http.put('/message/' + id, self.addVote).then(function (response) {
             console.log(response)
-        }).catch(function (err){
+        }).catch(function (err) {
             console.log('Error voting for smile');
         })
 

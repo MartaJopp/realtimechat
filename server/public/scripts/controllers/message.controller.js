@@ -11,7 +11,6 @@ myApp.controller('MessageBoardController', ['$scope', 'UserService', 'MessageSer
   vm.smileFilled = false;
   vm.thumbsUpFilled = false;
   vm.thumbsDownFilled = false;
-  // vm.popoverIsVisible = false;
 
 
   //post new message from input
