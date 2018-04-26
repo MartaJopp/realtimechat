@@ -224,12 +224,12 @@ background-color:#607d8b}
 
 .login {
   width: 500px;
-  background-color: yellow;
+  background-color: #607d8b;
   height: 500px;
   margin: auto;
   margin-top: 50px;
   width: 50%;
-  border: 3px solid green;
+  border: 3px solid #303e45;
   padding: 10px;
 }
 
@@ -238,6 +238,16 @@ background-color:#607d8b}
 
 .w3-container,.w3-panel
 {padding:0.01em 16px;
-background-color: grey;
+background-color: white;
 margin-bottom: 10px;
-text-align: center}
+text-align: center
+}
+
+#loginInput {
+  margin-top: 40px
+}
+
+.loginInput {
+  text-align: center;
+  margin-top: 10px;
+}
