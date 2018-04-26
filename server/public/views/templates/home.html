@@ -6,12 +6,20 @@
     <h1 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
         <form ng-submit="vm.login()">
             <div class="loginInput" id="loginInput">
-                <label class="loginInput" for="username">Username:</label>
-                <input type="text" ng-model="vm.user.username" />
+    <md-input-container class="md-block">
+        <label>Username</label>
+        <input type="text" ng-model="vm.user.username">
+    </md-input-container>
+                <!-- <label class="loginInput" for="username">Username:</label>
+                <input type="text" ng-model="vm.user.username" /> -->
             </div>
             <div class="loginInput">
-                <label class="loginInput" for="password">Password:</label>
-                <input type="password" ng-model="vm.user.password" />
+                    <md-input-container class="md-block">
+                        <label>Password</label>
+                        <input type="text" ng-model="vm.user.password">
+                    </md-input-container>
+                <!-- <label class="loginInput" for="password">Password:</label>
+                <input type="password" ng-model="vm.user.password" /> -->
             </div>
             <div class="centerMe" id="loginButton">
                 <md-button class="md-raised" type="submit" name="submit" value="Log In">Log In</md-button>
