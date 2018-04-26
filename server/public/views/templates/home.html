@@ -1,37 +1,38 @@
 <div class="container">
     <div class="login">
-    <header class="lead w3-container">
-        <h1>Login!</h1>
-    </header>
-    <h1 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
-        <form ng-submit="vm.login()">
-            <div class="loginInput" id="loginInput">
-    <md-input-container class="md-block">
-        <label>Username</label>
-        <input type="text" ng-model="vm.user.username">
-    </md-input-container>
-                <!-- <label class="loginInput" for="username">Username:</label>
+        <header class="lead w3-container">
+            <h1>Login!</h1>
+        </header>
+        <h1 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
+            <form ng-submit="vm.login()">
+                <div class="loginInput" id="loginInput">
+                    <md-input-container class="md-block">
+                        <label>Username</label>
+                        <input type="text" ng-model="vm.user.username">
+                    </md-input-container>
+                    <!-- <label class="loginInput" for="username">Username:</label>
                 <input type="text" ng-model="vm.user.username" /> -->
-            <!-- </div>
+                    <!-- </div>
             <div class="loginInput"> -->
                     <md-input-container class="md-block">
                         <label>Password</label>
                         <input type="text" ng-model="vm.user.password">
                     </md-input-container>
-                <!-- <label class="loginInput" for="password">Password:</label>
+                    <!-- <label class="loginInput" for="password">Password:</label>
                 <input type="password" ng-model="vm.user.password" /> -->
-            <!-- </div>
+                    <!-- </div>
             <div class="centerMe" id="loginButton"> -->
-                <md-button class="md-raised" type="submit" name="submit" value="Log In">Log In</md-button>
-            </div>
-        </form>
-        <div class = "registerLink">
-                <h5 class="centerMe">Don't already have an account?</h5>
-                  <h5 class="centerMe"><a href="#!register">Click Here</a> to Register</h5>
+                    <md-button class="md-raised" type="submit" name="submit" value="Log In">Log In</md-button>
                 </div>
-        </div>
-        <footer class="w3-container w3-theme-d5 bottomFooter">
-            <p>Real Time Chat
-            </p>
-        </footer>
+            </form>
+            <div class="registerLink">
+                <h5 class="centerMe">Don't already have an account?</h5>
+                <h5 class="centerMe">
+                    <a href="#!register">Click Here</a> to Register</h5>
+            </div>
+    </div>
+    <footer class="w3-container w3-theme-d5 bottomFooter">
+        <p>Real Time Chat
+        </p>
+    </footer>
 </div>
