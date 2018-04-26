@@ -231,6 +231,7 @@ background-color:#607d8b}
   width: 50%;
   border: 3px solid #303e45;
   padding: 10px;
+  position: relative
 }
 
 .login:hover
@@ -244,10 +245,28 @@ text-align: center
 }
 
 #loginInput {
-  margin-top: 40px
+  margin-top: 35px
+}
+
+.centerMe {
+  text-align: center
+}
+
+
+#loginButton {
+  margin-top: 10px;
 }
 
 .loginInput {
-  text-align: center;
-  margin-top: 10px;
+    display:block;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.registerLink {
+position: absolute;
+left: 0;
+right: 0;
+bottom: 0;
+margin: auto
 }
