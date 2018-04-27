@@ -1,44 +1,45 @@
 <div class="container">
-  <div class = "login">
-  <header class="lead w3-container">
-    <h1 class="lead">Register User</h1>
-  </header>
-  <h2 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
-  <form ng-submit="vm.registerUser()">
-    <div class="loginInput" id="loginInput">
-      <md-input-container class="md-block register">
-        <label>Username</label>
-        <input id="regusername" ng-model="vm.user.username">
-      </md-input-container>
+  <div class="registerHere">
+    <header class="lead w3-container">
+      <h1 class="lead">Register!</h1>
+    </header>
+    <h2 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
+    <form ng-submit="vm.registerUser()">
+      <div class="loginInput" id="loginInput">
+        <md-input-container class="md-block register">
+          <label>Username</label>
+          <input id="regusername" ng-model="vm.user.username">
+        </md-input-container>
 
-      <md-input-container class="md-block register">
-        <label>Password</label>
-        <input id="regpassword" type="password" ng-model="vm.user.password">
-      </md-input-container>
+        <md-input-container class="md-block register">
+          <label>Password</label>
+          <input id="regpassword" type="password" ng-model="vm.user.password">
+        </md-input-container>
 
-      <md-input-container class="md-block register" flex-gt-xl>
-        <label>Birthday</label>
-        <md-datepicker ng-model="vm.user.birthday"></md-datepicker>
-      </md-input-container>
+        <md-input-container class="md-block register">
+          <label>Birthday</label>
+          <md-datepicker ng-model="vm.user.birthday"></md-datepicker>
+        </md-input-container>
 
-      <md-input-container class="md-block register" flex-gt-xl>
-        <label>City</label>
-        <input type="text" ng-model="vm.user.city">
-      </md-input-container>
+        <md-input-container class="md-block register">
+          <label>City</label>
+          <input type="text" ng-model="vm.user.city">
+        </md-input-container>
 
-      <md-input-container class="md-block register" flex-gt-xl>
-        <label>Occupation</label>
-        <input type="text" ng-model="vm.user.occupation">
-      </md-input-container>
+        <md-input-container class="md-block register">
+          <label>Occupation</label>
+          <input type="text" ng-model="vm.user.occupation">
+        </md-input-container>
 
-      <md-button class="md-raised" ng-click="vm.choosePhoto()" ng-model="vm.user.profilePicture">Upload Profile Picture</md-button>
-      <img class="preview" ng-src="{{vm.user.profilePicture}}">
-      <md-button class="md-raised" type="submit" name="submit" value="Register">Register</md-button>
+        <md-button class="md-raised" ng-click="vm.choosePhoto()" ng-model="vm.user.profilePicture">Profile Picture</md-button>
+        <img class="preview" ng-src="{{vm.user.profilePicture}}">
+        <br>
+        <md-button class="md-raised" type="submit" name="submit" value="Register">Register</md-button>
 
-      <a href="#!home">Cancel</a>
-    </div>
-  </form>
-</div>
+        <a href="#!home">Cancel</a>
+      </div>
+    </form>
+  </div>
   <footer class="w3-container w3-theme-d5 bottomFooter">
     <p>Real Time Chat
     </p>

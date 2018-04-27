@@ -235,6 +235,22 @@ background-color:#607d8b}
   bottom: 10%
 }
 
+.registerHere:hover
+{box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)}
+
+.registerHere {
+  width: 500px;
+  background-color: #607d8b;
+  height: 700px;
+  margin: auto;
+  margin-top: 50px;
+  width: 50%;
+  border: 3px solid #303e45;
+  padding: 10px;
+  position: relative;
+  bottom: 10%
+}
+
 .login:hover
 {box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)}
 
