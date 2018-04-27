@@ -8,7 +8,7 @@ const PersonSchema = new Schema({
   password: { type: String, required: true },
   birthday: { type: Date },
   city: { type: String },
-  occupation: {type: String},
+  occupation: { type: String },
   profilePicture: { type: String }
 });
 

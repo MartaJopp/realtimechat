@@ -30,25 +30,25 @@ passport.use('local', new LocalStrategy({
   passReqToCallback: true,
   usernameField: 'username',
 }, ((req, username, password, done) => {
-    Person.find({ username })
-      .then((result) => {
-        const user = result && result[0];
-        console.log('the result', result) 
-        console.log('the user strategy', user)
-        if (user && encryptLib.comparePassword(password, user.password)) {
-          // all good! Passwords match!
-          done(null, user);
-        } else if (user) {
-          // not good! Passwords don't match!
-          done(null, false, { message: 'Incorrect credentials.' });
-        } else {
-          // not good! No user with that name
-          done(null, false);
-        }
-      }).catch((err) => {
-        console.log('error', err);
-        done(null, {});
-      });
-  })));
+  Person.find({ username })
+    .then((result) => {
+      const user = result && result[0];
+      console.log('the result', result)
+      console.log('the user strategy', user)
+      if (user && encryptLib.comparePassword(password, user.password)) {
+        // all good! Passwords match!
+        done(null, user);
+      } else if (user) {
+        // not good! Passwords don't match!
+        done(null, false, { message: 'Incorrect credentials.' });
+      } else {
+        // not good! No user with that name
+        done(null, false);
+      }
+    }).catch((err) => {
+      console.log('error', err);
+      done(null, {});
+    });
+})));
 
 module.exports = passport;

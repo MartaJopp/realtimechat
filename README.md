@@ -27,7 +27,7 @@ Software that is required before you attempt to start the app.
 
 ### Installing
 
-Steps to get the development environment running.
+Steps to get the development environment running:
 
 1. Download this project.
 2. `npm install`

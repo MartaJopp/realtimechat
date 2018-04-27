@@ -75,11 +75,11 @@ router.put('/:id', function (req, res) {
     Person.update({ "_id": req.user.id }, {
       $set: {
         "username": req.body.userName,
-          "occupation": req.body.occupation,
-          "city": req.body.city,
-          "birthday": req.body.birthday,
-          "profilePicture": req.body.profilePicture
-        }
+        "occupation": req.body.occupation,
+        "city": req.body.city,
+        "birthday": req.body.birthday,
+        "profilePicture": req.body.profilePicture
+      }
     }, function (err, personToUpdate) {
       if (err) {
         console.log("Error received updating person.", err);

@@ -17,13 +17,13 @@ const MessageSchema = new Schema({
         votes: { type: Number, default: 0 },
         byWho: { type: Array }
     },
-    thumbs_down: { 
-        votes: {type: Number, default: 0 },
-        byWho: {type: Array}
+    thumbs_down: {
+        votes: { type: Number, default: 0 },
+        byWho: { type: Array }
     },
     smile: {
-        votes: {type: Number, default: 0},
-        byWho: {type: Array}
+        votes: { type: Number, default: 0 },
+        byWho: { type: Array }
     }
 })
 
