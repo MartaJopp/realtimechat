@@ -35,7 +35,10 @@ Steps to get the development environment running:
 
 ## Screen Shot
 
-Include one or two screen shots of your project here (optional). Remove if unused.
+![Register](server/public/images/register.png)
+![Profile](server/public/images/profile.png)
+![Message Board](server/public/images/messageboard.png)
+![Login](server/public/images/login.png)
 
 ### Completed Features
 
