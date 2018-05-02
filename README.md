@@ -1,6 +1,6 @@
 # Real Time Messaging
 
-A real time messaging application with authentication. Users have the ability to create a profile, and send and read real time messages.
+A real time messaging application with authentication, sockets and filestack. Users have the ability to create a profile, and send and read real time messages.
 
 ## Built With
 
@@ -13,6 +13,7 @@ A real time messaging application with authentication. Users have the ability to
 - Angular Material for styling
 - Passport for user authentication
 - Socket.io
+- Filestack
 
 ## Getting Started
 
@@ -44,30 +45,25 @@ Steps to get the development environment running:
 
 High level list of items completed.
 
-- [ ] Real time message updates utilizing socket.io
-- [ ] View Messages if logged in.
+- [x] Real time message updates utilizing socket.io
+- [x] View Messages if logged in.
 - [ ] A user can delete messages they created.
 - [ ] A user can edit messages they created.
-- [ ] A user can post messages.
-- [ ] Users can post and edit their porfile.
+- [x] A user can post messages.
+- [x] Users can post and edit their profile.
 
 
 ### Next Steps
 
 Features that you would like to add at some point in the future.
 
-- [ ] Users may upload a profile picture.
-- [ ] Users may upload a picture as a message.
+- [x] Users may upload a profile picture.
+- [x] Users may upload a picture as a message.
 - [ ] Users may click on another user to see profile information.
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Authors
 
 * Marta Jopp
-
 
 ## Acknowledgments
 
