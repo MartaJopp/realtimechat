@@ -8,7 +8,6 @@ A real time messaging application with authentication, sockets and filestack. Us
 - Express
 - AngularJS 
 - Node.js
-- Moment.js
 - Angular Moment
 - Angular Material for styling
 - Passport for user authentication
