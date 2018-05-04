@@ -12,7 +12,7 @@
             <h4 class="w3-center">{{mb.userObject.userName}}</h4>
 
             <p class="w3-center">
-              <img src="{{mb.userObject.profilePicture}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
+              <img src="{{mb.userObject.profilePicture}}" class="w3-circle" style="height:106px;width:106px" alt="Profile Picture">
             </p>
             <hr>
             <p>
@@ -35,7 +35,7 @@
           <h4>{{message.posted_by}}</h4>
           <br>
           <!-- <hr class="w3-clear"> -->
-          <img src="{{message.messagePicture}}" id="messagePictures" style="width:200px; height:auto">
+          <img src="{{message.messagePicture}}" id="messagePictures" style="width:200px; height:auto" alt="Picture sent with message">
           <p>{{message.message}}</p>
           <p>
             <i ng-hide="mb.smileFilled" ng-click="mb.voteSmile(message._id)" ng-mouseover="mb.showNames()" ng-mouseleave="mb.hideNames()"

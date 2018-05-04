@@ -23,11 +23,11 @@
                         </h4>
 
                         <p ng-show="vm.editProfile" class="w3-center">
-                            <img src="{{vm.userObject.profilePicture}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
+                            <img src="{{vm.userObject.profilePicture}}" class="w3-circle" style="height:106px;width:106px" alt="Profile Picture">
                         </p>
                         <p class="w3-center" ng-hide="vm.editProfile">
                             <md-button ng-click="vm.newPhoto()" ng-model="vm.editedProfile.profilePicture">New Profile Picture</md-button>
-                            <img src="{{vm.editedProfile.profilePicture}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
+                            <img src="{{vm.editedProfile.profilePicture}}" class="w3-circle" style="height:106px;width:106px" alt="Profile Picture">
                         </p>
                         <hr>
                         <p ng-show="vm.editProfile">
