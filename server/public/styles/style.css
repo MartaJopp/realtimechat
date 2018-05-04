@@ -293,3 +293,7 @@ text-align: center
   width: 100%
 }
 
+#registerButton {
+  background-color: #303e45;
+  color: white;
+}
