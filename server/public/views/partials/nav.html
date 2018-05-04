@@ -19,9 +19,9 @@
         <a href="#!user" class="w3-bar-item w3-button w3-padding-large w3-theme-d4" title="My Home Page">
           <i class="fa fa-home w3-margin-right"></i>{{nbc.userObject.userName}}</a>
 
-        <a href="#!user" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Direct Messages">
+        <!-- <a href="#!user" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Direct Messages">
           <i class="fa fa-user"></i>
-        </a>
+        </a> -->
         <a href="#!messageboard" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Message Board">
           <i class="fa fa-envelope"></i>
         </a>
@@ -33,10 +33,10 @@
 
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
-      <a href="#!user" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
-      <a href="#!messageboard" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+      <br>
+      <br>
+      <a href="#!messageboard" class="w3-bar-item w3-button w3-padding-large">Message Board</a>
+      <a ng-click="nbc.userService.logout()" title="Logout" class="w3-bar-item w3-button w3-padding-large">Logout</a>
     </div>
 
   </div>

@@ -35,7 +35,7 @@
           <h4>{{message.posted_by}}</h4>
           <br>
           <!-- <hr class="w3-clear"> -->
-          <img src="{{message.messagePicture}}" id="messagePictures" style="width:200px; height:auto" alt="Picture sent with message">
+          <img src="{{message.messagePicture}}" id="messagePictures" style = "width:200px; height:auto">
           <p>{{message.message}}</p>
           <p>
             <i ng-hide="mb.smileFilled" ng-click="mb.voteSmile(message._id)" ng-mouseover="mb.showNames()" ng-mouseleave="mb.hideNames()"
